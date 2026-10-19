@@ -1,5 +1,5 @@
 {
- "note": "The house studios. They bid $1M over the price until they reach their ceiling for the lot, never break the reserve rule, and never know the genre.",
+ "note": "The house studios. For each lot, each rival secretly flips a ceiling from the list that matches how many of its favourite traits the star has (index 0 = none, 1 = one, 2 = two, 3 = three). Vault legends add legendBonus, or use the legend list if the studio has one. They raise $1M at a time up to that ceiling, never break the reserve rule, and never know the genre. pace: a rival never bids more than pace × (budget left ÷ empty slots), so it keeps money for later lots. Neck and neck: a rival never gets more than two stars ahead of the slowest human (RULES.rivalLead).",
  "studios": [
   {
    "id": "autoplay",
@@ -11,17 +11,40 @@
     "Muscle"
    ],
    "ceiling": {
-    "kind": "flip",
-    "deck": [
-     4,
-     5,
-     6,
-     7,
-     8,
-     10
+    "kind": "pick",
+    "byMatches": [
+     [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      12
+     ],
+     [
+      8,
+      9,
+      11,
+      13
+     ],
+     [
+      10,
+      12,
+      14
+     ]
     ]
    },
-   "legendBonus": 2
+   "legendBonus": 2,
+   "pace": 2.0
   },
   {
    "id": "b48",
@@ -34,15 +57,40 @@
     "Edge"
    ],
    "ceiling": {
-    "kind": "byMatches",
-    "table": [
-     0,
-     4,
-     7,
-     9
+    "kind": "pick",
+    "byMatches": [
+     [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     [
+      5,
+      6,
+      7,
+      8,
+      9
+     ],
+     [
+      7,
+      8,
+      9,
+      10,
+      11
+     ],
+     [
+      9,
+      11,
+      12,
+      13
+     ]
     ]
    },
-   "legendBonus": 2
+   "legendBonus": 2,
+   "pace": 1.6
   },
   {
    "id": "tlc",
@@ -55,12 +103,45 @@
    ],
    "likesLegends": true,
    "ceiling": {
-    "kind": "steady",
-    "base": 5,
-    "perMatch": 1,
-    "legend": 8
+    "kind": "pick",
+    "byMatches": [
+     [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     [
+      5,
+      6,
+      7,
+      8,
+      9
+     ],
+     [
+      6,
+      7,
+      8,
+      9,
+      10
+     ],
+     [
+      8,
+      9,
+      10
+     ]
+    ],
+    "legend": [
+     7,
+     8,
+     9,
+     10,
+     11
+    ]
    },
-   "legendBonus": 0
+   "legendBonus": 0,
+   "pace": 1.5
   }
  ],
  "lastOrders": 3

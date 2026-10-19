@@ -36,7 +36,7 @@ export function HowItWorks({ onBack }: { onBack: () => void }) {
 
       <section className="bhow__section">
         <h2 className="t-ticket">The ten traits</h2>
-        <p>Living stars carry two. Vault legends carry three, and surface once or twice a reel at hidden moments.</p>
+        <p>Living stars carry two. Vault legends carry three, and surface three or four times a reel at hidden moments.</p>
         <div className="bhow__traits">
           {traits.traits.map((t) => (
             <Trait key={t} name={t} />
@@ -58,7 +58,7 @@ export function HowItWorks({ onBack }: { onBack: () => void }) {
           <li>$20M budget, five stars, $1M minimum bid in $1M steps.</li>
           <li>You must keep $1M for every empty slot, so your top bid is always shown.</li>
           <li>The lot sells 8 seconds after the last bid (15 seconds to open). No bids and it’s binned.</li>
-          <li>Draws alternate actor, actress, actor, actress.</li>
+          <li>Draws alternate actress, actor, actress, actor. The stars come up in a fresh random order every game.</li>
           <li>Tap Pass when you’re out. If everyone’s out, the hammer falls sooner.</li>
         </ul>
       </section>
@@ -74,7 +74,7 @@ export function HowItWorks({ onBack }: { onBack: () => void }) {
             </div>
           ))}
         </div>
-        <p className="muted">Last orders: a rival that misses three lots in a row bids $1M on the next one, whoever it is.</p>
+        <p className="muted">Each rival flips a secret price limit for every star, so no bid is ever safe. They pace their money across the reel and never get more than two stars ahead of you. Last orders: a rival that misses three lots in a row bids $1M on the next one, whoever it is.</p>
       </section>
 
       <section className="bhow__section">

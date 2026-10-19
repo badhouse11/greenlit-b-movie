@@ -34,6 +34,7 @@ export const RULES = {
   plotBase: 2,
   lastOrders: houseRules.lastOrders,
   pitchSeconds: 60,
+  rivalLead: 2, // a rival never gets more than this many stars ahead of the slowest human
 } as const;
 
 export const TALENT: Card[] = (talentDeck.cards as StarCard[]).map((c) => ({ ...c, deck: 'talent' }));
@@ -174,7 +175,7 @@ function setUpReel(input: Game, number: number): Game {
   const talent = shuffle(TALENT, rng);
   const legacy = shuffle(LEGACY, rng);
   const totalSlots = g.studios.length * RULES.castSize;
-  const legendCount = rng() < 0.5 ? 1 : 2;
+  const legendCount = rng() < 0.5 ? 3 : 4;
   // Legends hide at secret draw numbers, never the very first lot, always before casting could close.
   const legacySlots = shuffle(
     Array.from({ length: totalSlots - 1 }, (_, i) => i + 2),
@@ -182,7 +183,7 @@ function setUpReel(input: Game, number: number): Game {
   )
     .slice(0, legendCount)
     .sort((a, b) => a - b);
-  const nextGender: Gender = rng() < 0.5 ? 'f' : 'm';
+  const nextGender: Gender = 'f'; // girl, boy, girl, boy: always starting with an actress
   g.genresUsed.push(genre.id);
   g.reel = {
     number,
@@ -216,22 +217,26 @@ export function setPhase(input: Game, phase: Phase): Game {
 /*  The casting auction                                                */
 /* ------------------------------------------------------------------ */
 
-/** The most a house studio will pay for a card, before its budget is considered. */
+/**
+ * The most a house studio will pay for a card, before its budget is considered.
+ * Flipped at random from a spread, so no single price is ever a safe winning bid.
+ */
 export function houseCeiling(h: HouseRules, card: Card, rng: () => number): number {
   const matches = card.traits.filter((t) => h.likes.includes(t)).length;
-  const legend = card.deck === 'legacy';
   const c = h.ceiling;
-  if (c.kind === 'flip') {
-    if (matches === 0) return 0;
-    return pick(c.deck, rng) + (legend ? h.legendBonus : 0);
-  }
-  if (c.kind === 'byMatches') {
-    if (matches === 0) return 0;
-    return c.table[Math.min(matches, c.table.length - 1)] + (legend ? h.legendBonus : 0);
-  }
-  if (legend && h.likesLegends) return c.legend;
-  if (matches === 0) return 0;
-  return c.base + c.perMatch * (matches - 1);
+  if (card.deck === 'legacy' && h.likesLegends && c.legend) return pick(c.legend, rng);
+  const row = c.byMatches[Math.min(matches, c.byMatches.length - 1)];
+  const base = pick(row, rng);
+  return base > 0 && card.deck === 'legacy' ? base + h.legendBonus : base;
+}
+
+/** The next vault legend of the gender that's due, so the alternation never breaks. */
+function takeLegacy(r: Reel): Card {
+  let i = r.legacy.findIndex((c) => c.gender === r.nextGender);
+  if (i < 0) i = 0;
+  const [card] = r.legacy.splice(i, 1);
+  r.nextGender = card.gender === 'f' ? 'm' : 'f';
+  return card;
 }
 
 function takeTalent(r: Reel): Card {
@@ -256,7 +261,7 @@ export function drawLot(input: Game): Game {
   const g = clone(input);
   const r = g.reel;
   const drawNo = r.drawCount + 1;
-  const card = r.legacySlots.includes(drawNo) && r.legacy.length ? r.legacy.shift()! : takeTalent(r);
+  const card = r.legacySlots.includes(drawNo) && r.legacy.length ? takeLegacy(r) : takeTalent(r);
   r.drawCount = drawNo;
   const ceilings: Record<string, number> = {};
   for (const s of g.studios) {
@@ -302,10 +307,15 @@ export function nextHouseBid(g: Game): { studioId: string; amount: number } | nu
   if (g.phase !== 'auction' || !lot) return null;
   const need = minNextBid(lot);
   let best: { studioId: string; amount: number; limit: number } | null = null;
+  // Neck and neck: a rival never gets more than two stars ahead of the slowest human.
+  const slowest = Math.min(...humans(g).map((s) => g.reel.studios[s.id].cast.length));
   for (const s of g.studios) {
     if (!s.house || lot.high?.studioId === s.id) continue;
     const rs = g.reel.studios[s.id];
-    const limit = Math.min(lot.ceilings[s.id] ?? 0, maxBid(rs));
+    if (rs.cast.length >= slowest + RULES.rivalLead) continue;
+    const h = houseFor(s)!;
+    const paced = Math.max(RULES.minBid, Math.floor((h.pace * rs.budget) / Math.max(1, slotsLeft(rs))));
+    const limit = Math.min(lot.ceilings[s.id] ?? 0, maxBid(rs), paced);
     if (limit >= need && (!best || limit > best.limit)) best = { studioId: s.id, amount: need, limit };
   }
   return best ? { studioId: best.studioId, amount: best.amount } : null;

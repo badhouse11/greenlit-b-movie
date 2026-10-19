@@ -113,9 +113,13 @@ test('full solo reels finish legally across many seeds', () => {
   }
 });
 
-test('house studios never break the budget rules, even when the human bids nothing', () => {
+test('house studios never break the budget rules or run more than two stars ahead', () => {
   let g = solo('houses-only');
-  for (let guard = 0; guard < 400 && Object.values(g.reel.studios).some((rs) => rs.studioId !== 'p1' && slotsLeft(rs) > 0); guard++) {
+  for (let guard = 0; guard < 600 && g.phase === 'auction'; guard++) {
+    if (humansFull(g)) {
+      g = fastForward(g);
+      break;
+    }
     g = drawLot(g);
     for (let i = 0; i < 300; i++) {
       const move = nextHouseBid(g);
@@ -123,8 +127,11 @@ test('house studios never break the budget rules, even when the human bids nothi
       assert.ok(move.amount <= maxBid(g.reel.studios[move.studioId]));
       g = placeBid(g, move.studioId, move.amount);
     }
+    if (!g.reel.lot!.high && guard % 3 === 0) g = placeBid(g, 'p1', 1); // the human only picks up the scraps
     g = closeLot(g);
     assertLegal(g);
+    const mine = g.reel.studios.p1.cast.length;
+    for (const id of ['autoplay', 'b48', 'tlc']) if (mine < 5) assert.ok(g.reel.studios[id].cast.length <= mine + RULES.rivalLead, id);
   }
   for (const id of ['autoplay', 'b48', 'tlc']) assert.equal(g.reel.studios[id].cast.length, 5, id);
 });
@@ -136,17 +143,43 @@ test('the reserve rule: you must keep $1M for each empty slot', () => {
   assert.equal(g.reel.lot!.high!.amount, 16);
 });
 
-test('talent draws alternate actress and actor', () => {
-  const g = playScripted(solo('alternate'));
-  const talent = g.reel.sales.filter((s) => s.card.deck === 'talent').map((s) => s.card.gender);
-  for (let i = 1; i < talent.length; i++) assert.notEqual(talent[i], talent[i - 1], `draw ${i}`);
+test('every draw alternates actress, actor, actress, actor, starting with an actress', () => {
+  for (let i = 0; i < 20; i++) {
+    const g = playScripted(solo(`alternate-${i}`));
+    const genders = g.reel.sales.map((s) => s.card.gender);
+    assert.equal(genders[0], 'f');
+    for (let j = 1; j < genders.length; j++) assert.notEqual(genders[j], genders[j - 1], `seed ${i}, draw ${j}`);
+  }
 });
 
-test('one or two vault legends surface every reel', () => {
+test('Free Play shuffles a fresh order every game', () => {
+  const firsts = new Set(Array.from({ length: 12 }, (_, i) => newGame({ mode: 'free', seed: `fresh-${i}`, humans: [{ name: 'Me', colour: 'darlington' }] }).reel.talent[0].id));
+  assert.ok(firsts.size >= 10);
+});
+
+test('no single price is a safe bid: a $4M opener is usually beaten early in a reel', () => {
+  let tries = 0, held = 0;
+  for (let i = 0; i < 200; i++) {
+    let g = drawLot(solo(`four-${i}`));
+    for (let lot = 0; lot < 4; lot++) {
+      tries++;
+      if (!nextHouseBid(placeBid(g, 'p1', 4))) held++;
+      for (let k = 0; k < 300; k++) {
+        const move = nextHouseBid(g);
+        if (!move) break;
+        g = placeBid(g, move.studioId, move.amount);
+      }
+      g = drawLot(closeLot(g));
+    }
+  }
+  assert.ok(held / tries < 0.2, `$4M held ${((100 * held) / tries).toFixed(0)}% of the time`);
+});
+
+test('three or four vault legends surface every reel', () => {
   for (let i = 0; i < 30; i++) {
     const g = playScripted(solo(`legend-${i}`));
     const n = g.reel.sales.filter((s) => s.card.deck === 'legacy').length;
-    assert.ok(n >= 1 && n <= 2, `seed ${i}: ${n} legends`);
+    assert.ok(n >= 3 && n <= 4, `seed ${i}: ${n} legends`);
   }
 });
 

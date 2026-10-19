@@ -48,10 +48,12 @@ export interface Critic {
   effects: CriticEffect[];
 }
 
-export type HouseCeiling =
-  | { kind: 'flip'; deck: number[] }
-  | { kind: 'byMatches'; table: number[] }
-  | { kind: 'steady'; base: number; perMatch: number; legend: number };
+/** Ceiling options by how many favourite traits the star has (0, 1, 2, 3); one is flipped at random per lot. */
+export interface HouseCeiling {
+  kind: 'pick';
+  byMatches: number[][];
+  legend?: number[];
+}
 
 export interface HouseRules {
   id: string;
@@ -60,6 +62,7 @@ export interface HouseRules {
   blurb: string;
   likes: string[];
   likesLegends?: boolean;
+  pace: number; // never bids more than pace × (budget left ÷ empty slots)
   ceiling: HouseCeiling;
   legendBonus: number;
 }

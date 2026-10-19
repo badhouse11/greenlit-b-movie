@@ -9,7 +9,9 @@ import {
   budgetStamps,
   castingStamps,
   closeLot,
-  criticVerdict,
+  rolesVerdict,
+  genreOf,
+  traitsHidden,
   dailySeed,
   drawLot,
   fastForward,
@@ -197,8 +199,12 @@ test('scoring maths add up and stay in range', () => {
       assert.equal(c.total, c.casting + c.budget + c.plot);
       assert.equal(c.fit, c.fitLines.reduce((a, l) => a + l.pts, 0));
       assert.equal(c.casting, castingStamps(c.fit));
-      const v = criticVerdict(g, s.id);
-      assert.equal(v.stamps, Math.max(0, Math.min(5, v.lines.reduce((a, l) => a + l.pts, 0))));
+      const v = rolesVerdict(g, s.id);
+      assert.equal(v.stamps, v.lines.reduce((a, l) => a + l.pts, 0));
+      assert.equal(c.plot, v.stamps);
+      // one star per role
+      const stars = v.parts.filter((p) => p.star).map((p) => p.star);
+      assert.equal(new Set(stars).size, stars.length);
     }
   }
 });
@@ -253,16 +259,41 @@ test('Two-Hander: three reels, honest critic bonus, never the same genre twice',
     assertLegal(g);
     genres.push(g.reel.genreId);
     assert.throws(() => finishReel(g), /score the other film/);
-    const fair = criticVerdict(g, 'p2').stamps;
+    const fair = rolesVerdict(g, 'p2').stamps;
     g = givePlot(g, 'p2', fair); // Ann is honest about Bo's film
     g = givePlot(g, 'p1', 0); // Bo low-balls Ann
     const before = { ...g.honest };
     g = finishReel(g);
     assert.equal(g.honest.p1, before.p1 + 1);
-    if (criticVerdict(g, 'p1').stamps > 1) assert.equal(g.honest.p2, before.p2);
+    if (rolesVerdict(g, 'p1').stamps > 1) assert.equal(g.honest.p2, before.p2);
     g = nextReel(setPhase(g, 'result'));
     if (reel < 3) assert.equal(g.phase, 'commission');
   }
   assert.equal(new Set(genres).size, 3);
   assert.ok(g.phase === 'final' || g.totalReels === 4);
+});
+
+test('roles: every genre casts five roles from known traits', () => {
+  const known = new Set(traits.traits);
+  for (const gnr of GENRES) {
+    assert.equal(Object.keys(gnr.roles).length, 5, gnr.name);
+    for (const t of Object.values(gnr.roles)) assert.ok(known.has(t), `${gnr.name}: ${t}`);
+  }
+});
+
+test('roles: the best casting is found, one star per role', () => {
+  let g = playScripted(solo('roles'));
+  const genre = genreOf(g);
+  const v = rolesVerdict(g, 'p1');
+  for (const p of v.parts) if (p.star) assert.ok(g.reel.studios.p1.cast.find((m) => m.card.name === p.star)!.card.traits.includes(p.trait));
+  assert.ok(v.stamps >= 0 && v.stamps <= 5);
+  assert.ok(genre.roles.lightRelief);
+});
+
+test('solo hides traits until the premiere; Two-Hander shows them', () => {
+  const s = solo('hidden');
+  assert.equal(traitsHidden(s), true);
+  assert.equal(traitsHidden(playScripted(s)), false);
+  const t = setPhase(newGame({ mode: 'two', seed: 't', humans: [{ name: 'A', colour: 'darlington' }, { name: 'B', colour: 'beeswax' }] }), 'auction');
+  assert.equal(traitsHidden(t), false);
 });

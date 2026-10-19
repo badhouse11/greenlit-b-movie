@@ -13,12 +13,16 @@ export interface Card extends StarCard {
   deck: DeckKind;
 }
 
+export type RoleKey = 'protagonist' | 'antagonist' | 'loveInterest' | 'supporting' | 'lightRelief';
+
 export interface Genre {
   id: string;
   name: string;
   wants: string[];
   bonus: string;
   clash: string;
+  /** The Plot: each role wants one trait, and each star can play one role. */
+  roles: Record<RoleKey, string>;
 }
 
 export type CriticEffect =

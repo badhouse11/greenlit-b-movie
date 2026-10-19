@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Card, Critic, Film, Genre, ReelStudio, Studio } from '../game/types';
 import type { Line, Scorecard } from '../game/engine';
-import { RULES, maxBid, slotsLeft } from '../game/engine';
+import { ROLES, RULES, maxBid, slotsLeft } from '../game/engine';
 import { stock } from '../lib/palette';
 import { GREENLIT_URL } from '../lib/links';
 import { FitText, Ticket, serialFor } from './Ticket';
@@ -42,7 +42,7 @@ export function Traits({ traits, genre, small }: { traits: string[]; genre?: Gen
 /* ---------------------------------------------------------------------- */
 /*  The lot: one star on the table                                         */
 /* ---------------------------------------------------------------------- */
-export function LotTicket({ card, compact = false }: { card: Card; compact?: boolean }) {
+export function LotTicket({ card, compact = false, hideTraits = false }: { card: Card; compact?: boolean; hideTraits?: boolean }) {
   const legacy = card.deck === 'legacy';
   const num = card.id.replace(/\D/g, '');
   return (
@@ -62,7 +62,17 @@ export function LotTicket({ card, compact = false }: { card: Card; compact?: boo
       <div className="blot__name t-ticket">
         <FitText text={card.name} max={compact ? 30 : 46} min={14} />
       </div>
-      <Traits traits={card.traits} />
+      {hideTraits ? (
+        <span className="traits" aria-label="Traits sealed until the premiere">
+          {card.traits.map((_, i) => (
+            <span key={i} className="trait trait--sealed">
+              Sealed
+            </span>
+          ))}
+        </span>
+      ) : (
+        <Traits traits={card.traits} />
+      )}
       {!compact && (
         <div className="blot__serial" aria-hidden="true">
           {serialFor(card.name)} · admit one star
@@ -126,16 +136,19 @@ export function StudioStub({
 /* ---------------------------------------------------------------------- */
 /*  The genre card, revealed                                               */
 /* ---------------------------------------------------------------------- */
-export function GenreCard({ genre, number }: { genre: Genre; number: number }) {
+export function GenreCard({ genre, number, roles = false, sealed = false }: { genre: Genre; number: number; roles?: boolean; sealed?: boolean }) {
   return (
     <div className="gcard">
       <div className="gcard__head t-mono">
         <span>Commission no. {String(number).padStart(2, '0')}</span>
-        <span>Opened</span>
+        <span>{sealed ? 'Your commission' : 'Opened'}</span>
       </div>
       <div className="gcard__name t-ticket">
         <FitText text={genre.name} max={56} min={20} />
       </div>
+      {sealed ? (
+        <p className="gcard__sealed">What it wants stays sealed until the premiere. Cast it from instinct.</p>
+      ) : (
       <dl className="gcard__rows">
         <div>
           <dt>Wants · +2 each</dt>
@@ -158,6 +171,20 @@ export function GenreCard({ genre, number }: { genre: Genre; number: number }) {
           </dd>
         </div>
       </dl>
+      )}
+      {roles && !sealed && (
+        <div className="gcard__roles">
+          <div className="gcard__roles-head t-wide">The roles · 1 Plot stamp each</div>
+          <ul>
+            {ROLES.map((r) => (
+              <li key={r.key}>
+                <span>{r.label}</span>
+                <Trait name={genre.roles[r.key]} small />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
@@ -296,8 +323,8 @@ function Why({ cat, card, plotNote }: { cat: 'casting' | 'budget' | 'plot'; card
     <ul className="why">
       {lines.length === 0 && <li>Nothing on genre. Fit score 0.</li>}
       {lines.map((l, i) => (
-        <li key={i} className={l.pts < 0 ? 'neg' : ''}>
-          <b>{l.pts > 0 ? `+${l.pts}` : l.pts}</b> {l.text}
+        <li key={i} className={l.pts < 0 ? 'neg' : l.pts === 0 ? 'nil' : ''}>
+          <b>{l.pts > 0 ? `+${l.pts}` : l.pts === 0 ? '·' : l.pts}</b> {l.text}
         </li>
       ))}
       {cat === 'casting' && lines.length > 0 && <li className="why__sum">Fit score {total}</li>}

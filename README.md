@@ -4,8 +4,8 @@ The cheap double-bill support feature to [GREENLIT](https://fancy-lily-73a6e5.ne
 
 > You've got $20 million. You need five stars. You have absolutely no idea what film you're making.
 
-- **DAILIES**: one puzzle a day, the same for everyone (seeded from the UTC date). One go, a shareable result, a streak.
-- **Free Play**: a random seed, unlimited goes, with Undo.
+- **DAILIES**: one puzzle a day, the same for everyone (seeded from the UTC date). The genre is on the envelope from the start; star traits stay sealed until the premiere. One go, a shareable result, a streak.
+- **Free Play**: the same, with a random seed, unlimited goes and Undo.
 - **TWO-HANDER**: two players, one phone flat on the table, best of three reels against Autoplay+.
 
 No server. Everything runs in the browser and saves to `localStorage`.
@@ -28,8 +28,8 @@ npm run build    # production build into dist/
 | `src/data/talent.json` | 172 living stars, two traits each. |
 | `src/data/legacy.json` | 94 vault legends, three traits each. |
 | `src/data/traits.json` | The ten traits. |
-| `src/data/genres.json` | 24 genres with `wants`, `bonus` and `clash`. |
-| `src/data/critics.json` | 20 critics: taste, rule, review and pan lines, and machine-readable `effects`. |
+| `src/data/genres.json` | 24 genres with `wants`, `bonus` and `clash` (Casting) and five `roles` (Plot). |
+| `src/data/critics.json` | 20 critics: flavour lines on the result screen. |
 | `src/data/house.json` | The rival studios: Autoplay+, B48 and TLC Corp. |
 
 The decks are plain JSON: edit them freely. Traits must come from `traits.json` (the tests check).

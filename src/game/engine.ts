@@ -10,7 +10,6 @@ import criticDeck from '../data/critics.json';
 import houseRules from '../data/house.json';
 import type {
   Card,
-  CastMember,
   Critic,
   Film,
   Game,
@@ -22,6 +21,7 @@ import type {
   Phase,
   Reel,
   ReelStudio,
+  RoleKey,
   StarCard,
   Studio,
 } from './types';
@@ -39,7 +39,7 @@ export const RULES = {
 
 export const TALENT: Card[] = (talentDeck.cards as StarCard[]).map((c) => ({ ...c, deck: 'talent' }));
 export const LEGACY: Card[] = (legacyDeck.cards as StarCard[]).map((c) => ({ ...c, deck: 'legacy' }));
-export const GENRES: Genre[] = genreDeck.cards;
+export const GENRES: Genre[] = genreDeck.cards as Genre[];
 export const CRITICS: Critic[] = criticDeck.cards as Critic[];
 export const HOUSES: HouseRules[] = houseRules.studios as HouseRules[];
 
@@ -115,6 +115,18 @@ export const studioById = (g: Game, id: string): Studio => {
 export const houseFor = (s: Studio): HouseRules | null => HOUSES.find((h) => h.id === s.house) ?? null;
 export const isHuman = (s: Studio) => !s.house;
 export const humans = (g: Game) => g.studios.filter(isHuman);
+/** Dailies and Free Play: the genre is on the envelope from the start and the traits stay hidden until the premiere. */
+export const genreKnown = (g: Game) => g.mode !== 'two';
+export const traitsHidden = (g: Game) => g.mode !== 'two' && ['commission', 'auction'].includes(g.phase);
+
+export const ROLES: { key: RoleKey; label: string }[] = [
+  { key: 'protagonist', label: 'Protagonist' },
+  { key: 'antagonist', label: 'Antagonist' },
+  { key: 'loveInterest', label: 'Love Interest' },
+  { key: 'supporting', label: 'Supporting Cast' },
+  { key: 'lightRelief', label: 'Light Relief' },
+];
+
 export const genreOf = (g: Game): Genre => GENRES.find((x) => x.id === g.reel.genreId)!;
 export const criticOf = (g: Game): Critic => CRITICS.find((x) => x.id === g.reel.criticId)!;
 
@@ -221,8 +233,9 @@ export function setPhase(input: Game, phase: Phase): Game {
  * The most a house studio will pay for a card, before its budget is considered.
  * Flipped at random from a spread, so no single price is ever a safe winning bid.
  */
-export function houseCeiling(h: HouseRules, card: Card, rng: () => number): number {
-  const matches = card.traits.filter((t) => h.likes.includes(t)).length;
+export function houseCeiling(h: HouseRules, card: Card, rng: () => number, genre?: Genre): number {
+  // When the genre is public, rivals chase what it wants as well as their own favourites.
+  const matches = card.traits.filter((t) => h.likes.includes(t) || genre?.wants.includes(t)).length;
   const c = h.ceiling;
   if (card.deck === 'legacy' && h.likesLegends && c.legend) return pick(c.legend, rng);
   const row = c.byMatches[Math.min(matches, c.byMatches.length - 1)];
@@ -268,7 +281,7 @@ export function drawLot(input: Game): Game {
     const h = houseFor(s);
     const rs = r.studios[s.id];
     if (!h || slotsLeft(rs) === 0) continue;
-    let ceiling = houseCeiling(h, card, rngFrom(`${r.seed}:lot${drawNo}:${h.id}`));
+    let ceiling = houseCeiling(h, card, rngFrom(`${r.seed}:lot${drawNo}:${h.id}`), genreKnown(g) ? genreOf(g) : undefined);
     if (rs.dry >= RULES.lastOrders) ceiling = Math.max(ceiling, RULES.minBid); // last orders
     ceilings[s.id] = ceiling;
   }
@@ -403,82 +416,43 @@ export function budgetStamps(spentM: number): number {
 }
 
 const clampStamps = (n: number) => Math.max(0, Math.min(RULES.stamps, n));
-const count = (cast: CastMember[], trait: string) => cast.filter((m) => m.card.traits.includes(trait)).length;
 
-/** What the critic would give this cast, line by line. */
-export function criticVerdict(g: Game, studioId: string): { stamps: number; lines: Line[]; quote: string } {
-  const critic = criticOf(g);
+/**
+ * The Plot: cast your five stars into the genre's five roles, one star per role.
+ * Each role played by a star with the right trait earns a stamp. Finds the best possible casting.
+ */
+export function rolesVerdict(g: Game, studioId: string): { stamps: number; lines: Line[]; parts: { role: string; trait: string; star: string | null }[] } {
   const genre = genreOf(g);
-  const cast = g.reel.studios[studioId].cast;
-  const lines: Line[] = [{ text: 'Starting stamps', pts: RULES.plotBase }];
-  for (const e of critic.effects) {
-    switch (e.kind) {
-      case 'perLegend': {
-        const n = cast.filter((m) => m.card.deck === 'legacy').length;
-        if (n) lines.push({ text: `${n} vault ${n === 1 ? 'legend' : 'legends'}`, pts: n * e.pts });
-        break;
+  const cast = g.reel.studios[studioId].cast.map((m) => m.card);
+  const fits = (star: Card | undefined, role: RoleKey) => !!star && star.traits.includes(genre.roles[role]);
+  let best: number[] = [];
+  let bestScore = -1;
+  const idx = cast.map((_, i) => i);
+  const permute = (left: number[], chosen: number[]) => {
+    if (bestScore === ROLES.length) return;
+    if (chosen.length === ROLES.length || left.length === 0) {
+      const score = chosen.reduce((a, ci, ri) => a + (fits(cast[ci], ROLES[ri].key) ? 1 : 0), 0);
+      if (score > bestScore) {
+        bestScore = score;
+        best = chosen;
       }
-      case 'noLegend':
-        if (!cast.some((m) => m.card.deck === 'legacy')) lines.push({ text: 'No vault legend', pts: e.pts });
-        break;
-      case 'anyPriceAtLeast': {
-        const big = cast.find((m) => m.price >= e.price);
-        if (big) lines.push({ text: `${big.card.name} cost $${big.price}M`, pts: e.pts });
-        break;
-      }
-      case 'allPriceAtMost':
-        if (cast.every((m) => m.price <= e.price)) lines.push({ text: `Nobody cost over $${e.price}M`, pts: e.pts });
-        break;
-      case 'allPriceBetween':
-        if (cast.every((m) => m.price >= e.min && m.price <= e.max)) lines.push({ text: `Every star cost $${e.min}M to $${e.max}M`, pts: e.pts });
-        break;
-      case 'sharedTrait': {
-        const all = [...new Set(cast.flatMap((m) => m.card.traits))];
-        const shared = all.find((t) => count(cast, t) >= e.count);
-        if (shared) lines.push({ text: `${count(cast, shared)} stars share ${shared}`, pts: e.pts });
-        break;
-      }
-      case 'perTrait': {
-        const n = count(cast, e.trait);
-        if (n) lines.push({ text: `${n} × ${e.trait}`, pts: n * e.pts });
-        break;
-      }
-      case 'perPrice': {
-        const n = cast.filter((m) => m.price === e.price).length;
-        if (n) lines.push({ text: `${n} bought for $${e.price}M`, pts: n * e.pts });
-        break;
-      }
-      case 'variety': {
-        const n = new Set(cast.flatMap((m) => m.card.traits)).size;
-        if (n > e.over) lines.push({ text: `${n} different traits`, pts: (n - e.over) * e.pts });
-        break;
-      }
-      case 'noClash':
-        if (count(cast, genre.clash) === 0) lines.push({ text: `No ${genre.clash} to clash`, pts: e.pts });
-        break;
-      case 'perClash': {
-        const n = count(cast, genre.clash);
-        if (n) lines.push({ text: `${n} × ${genre.clash} clashing`, pts: n * e.pts });
-        break;
-      }
-      case 'perWant': {
-        const n = cast.filter((m) => m.card.traits.some((t) => genre.wants.includes(t))).length;
-        lines.push({ text: `${n} on-genre ${n === 1 ? 'star' : 'stars'}`, pts: n * e.pts });
-        break;
-      }
-      case 'flat':
-        lines.push({ text: 'House rules', pts: e.pts });
-        break;
-      case 'spentLeast': {
-        const mine = spent(g.reel.studios[studioId]);
-        const least = Math.min(...Object.values(g.reel.studios).map(spent));
-        if (mine <= least) lines.push({ text: 'Spent the least', pts: e.pts });
-        break;
-      }
+      return;
     }
-  }
-  const stamps = clampStamps(lines.reduce((a, l) => a + l.pts, 0));
-  return { stamps, lines, quote: stamps >= 3 ? critic.review : critic.pan };
+    for (const i of left) permute(left.filter((x) => x !== i), [...chosen, i]);
+  };
+  permute(idx, []);
+  const parts = ROLES.map((r, ri) => {
+    const star = cast[best[ri]];
+    return { role: r.label, trait: genre.roles[r.key], star: fits(star, r.key) ? star!.name : null };
+  });
+  const lines = parts.map((p) => ({ text: p.star ? `${p.role}: ${p.star} (${p.trait})` : `${p.role}: nobody with ${p.trait}`, pts: p.star ? 1 : 0 }));
+  return { stamps: Math.max(0, bestScore), lines, parts };
+}
+
+/** The critic is flavour now: a rave for a strong film, a pan for a weak one. */
+export function criticLine(g: Game, total: number): string {
+  const c = criticOf(g);
+  return total >= 10 ? c.review : c.pan;
 }
 
 export interface Scorecard {
@@ -499,11 +473,12 @@ export function scorecard(g: Game, studioId: string): Scorecard {
   const rs = g.reel.studios[studioId];
   const fitLines = rs.cast.flatMap((m) => fitOf(m.card, genre));
   const fit = fitLines.reduce((a, l) => a + l.pts, 0);
-  const verdict = criticVerdict(g, studioId);
+  const verdict = rolesVerdict(g, studioId);
   const byPlayer = g.mode === 'two' && isHuman(studioById(g, studioId)) && g.reel.plotGiven[studioId] !== undefined;
   const plot = byPlayer ? clampStamps(g.reel.plotGiven[studioId]) : verdict.stamps;
   const casting = castingStamps(fit);
   const budget = budgetStamps(spent(rs));
+  const quote = criticLine(g, casting + budget + plot);
   return {
     casting,
     budget,
@@ -513,7 +488,7 @@ export function scorecard(g: Game, studioId: string): Scorecard {
     fitLines,
     plotLines: verdict.lines,
     plotByPlayer: byPlayer,
-    quote: verdict.quote,
+    quote,
     spent: spent(rs),
   };
 }
@@ -569,7 +544,7 @@ export function finishReel(input: Game): Game {
   if (g.mode === 'two') {
     for (const s of humans(g)) {
       const given = g.reel.plotGiven[s.id];
-      const fair = criticVerdict(g, s.id).stamps;
+      const fair = rolesVerdict(g, s.id).stamps;
       const judge = rivalOf(g, s.id);
       if (Math.abs(given - fair) <= 1) {
         g.honest[judge.id] += 1;

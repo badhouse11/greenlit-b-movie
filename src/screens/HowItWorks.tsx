@@ -5,9 +5,9 @@ import { stock } from '../lib/palette';
 import traits from '../data/traits.json';
 
 const STEPS = [
-  { head: 'A genre is sealed', body: 'Nobody sees it. Not you, not the rivals.' },
-  { head: 'Bid on five stars', body: '$20M each. Every star carries trait stamps.' },
-  { head: 'Open the envelope', body: 'The genre wants some traits and hates one.' },
+  { head: 'Get your commission', body: 'Today’s genre is on the envelope. Heist, Musical, Film Noir…' },
+  { head: 'Cast from instinct', body: 'Bid on five stars with $20M. Their trait stamps are sealed.' },
+  { head: 'The premiere', body: 'The traits are revealed against what the genre wants.' },
   { head: 'Punch the card', body: 'Up to 5 stamps each for Casting, Budget and Plot.' },
 ];
 
@@ -20,7 +20,7 @@ export function HowItWorks({ onBack }: { onBack: () => void }) {
       </button>
       <div className="t-wide">How it works</div>
       <h1 className="page-title t-ticket">The support feature</h1>
-      <p className="lede">You’ve got $20 million. You need five stars. You have absolutely no idea what film you’re making.</p>
+      <p className="lede">You’ve got $20 million and a genre. You need five stars. You have no idea what they’re really made of.</p>
 
       <ol className="bhow__steps">
         {STEPS.map((s, i) => (
@@ -36,7 +36,7 @@ export function HowItWorks({ onBack }: { onBack: () => void }) {
 
       <section className="bhow__section">
         <h2 className="t-ticket">The ten traits</h2>
-        <p>Living stars carry two. Vault legends carry three, and surface three or four times a reel at hidden moments.</p>
+        <p>Living stars carry two. Vault legends carry three, and surface three or four times a reel at hidden moments. In Dailies and Free Play the stamps stay sealed until the premiere, so you’re casting on instinct: who feels right for a Western?</p>
         <div className="bhow__traits">
           {traits.traits.map((t) => (
             <Trait key={t} name={t} />
@@ -46,9 +46,10 @@ export function HowItWorks({ onBack }: { onBack: () => void }) {
 
       <section className="bhow__section">
         <h2 className="t-ticket">The genre card</h2>
-        <p>Each of the 24 genres wants two traits (+2 for every star that has one), gives a bonus for one (+1) and clashes with one (−1). Add them up across your cast for your fit score.</p>
+        <p>Each of the 24 genres wants two traits (+2 for every star that has one), gives a bonus for one (+1) and clashes with one (−1). That’s your Casting fit score.</p>
+        <p>It also has five roles: Protagonist, Antagonist, Love Interest, Supporting Cast and Light Relief. Each role needs a trait, and each star can play one role. That’s your Plot.</p>
         <div className="bhow__genre">
-          <GenreCard genre={example} number={1} />
+          <GenreCard genre={example} number={1} roles />
         </div>
       </section>
 
@@ -65,7 +66,7 @@ export function HowItWorks({ onBack }: { onBack: () => void }) {
 
       <section className="bhow__section">
         <h2 className="t-ticket">The rival studios</h2>
-        <p>The app bids for them by simple rules. They don’t know the genre either.</p>
+        <p>The app bids for them by simple rules. In Dailies and Free Play they know the genre too and chase the stars it wants. In a Two-Hander nobody knows it.</p>
         <div className="bhow__rivals">
           {HOUSES.map((h) => (
             <div key={h.id} className="brival-card" style={{ ['--r-bg' as string]: stock(h.colour).bg, ['--r-ink' as string]: stock(h.colour).ink }}>
@@ -85,20 +86,20 @@ export function HowItWorks({ onBack }: { onBack: () => void }) {
           <dt>Budget</dt>
           <dd>Spent $12M or less: 5 · $14M: 4 · $16M: 3 · $18M: 2 · $19M: 1 · all $20M: 0</dd>
           <dt>Plot</dt>
-          <dd>A critic card is flipped each reel. Every film starts on 2 stamps; the critic’s taste adds or takes away.</dd>
+          <dd>One stamp for every role played by a star with the right trait, one star per role. The app finds the best way to cast your five.</dd>
         </dl>
         <p>The highest total takes the Oscar. Ties go to the better fit score, then the smaller spend.</p>
       </section>
 
       <section className="bhow__section">
         <h2 className="t-ticket">Dailies</h2>
-        <p>One puzzle a day, the same for everyone in the world: same stars, same genre, same critic, same rivals. One go each. Share your stamps without spoiling anything. A new Dailies drops at midnight UTC.</p>
+        <p>One puzzle a day, the same for everyone in the world: same genre, same stars in the same order, same rivals. One go each. Share your stamps without spoiling anything. A new Dailies drops at midnight UTC.</p>
       </section>
 
       <section className="bhow__section">
         <h2 className="t-ticket">Two-Hander</h2>
-        <p>Two players, one phone lying flat between you, best of three reels. Each of you bids from your own half of the screen against Autoplay+.</p>
-        <p>After casting, each of you pitches your film in 60 seconds, and the other scores its Plot in secret. Land within one stamp of the critic’s verdict and you bank an Honest Critic bonus point. Most points after three reels wins; greenlight stubs break a tie, then a sudden-death reel.</p>
+        <p>Two players, one phone lying flat between you, best of three reels. Here the genre stays sealed until casting closes, and the trait stamps are on show. Each of you bids from your own half of the screen against Autoplay+.</p>
+        <p>After casting, each of you pitches your film in 60 seconds, and the other scores its Plot in secret. Land within one stamp of the real Roles score and you bank an Honest Critic bonus point. Most points after three reels wins; greenlight stubs break a tie, then a sudden-death reel.</p>
       </section>
 
       <CrossSell variant="rules" />

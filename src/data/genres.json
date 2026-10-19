@@ -1,5 +1,5 @@
 {
- "note": "Wants score +2 per matching star, bonus +1, clash -1.",
+ "note": "Wants score +2 per matching star, bonus +1, clash -1 (Casting). Roles are the Plot: each role filled by a different star with that trait earns 1 Plot stamp.",
  "cards": [
   {
    "id": "G001",
@@ -9,7 +9,14 @@
     "Edge"
    ],
    "bonus": "Cult",
-   "clash": "Song & Dance"
+   "clash": "Song & Dance",
+   "roles": {
+    "protagonist": "Scream",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Prestige",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G002",
@@ -19,7 +26,14 @@
     "Laughs"
    ],
    "bonus": "Heart",
-   "clash": "Scream"
+   "clash": "Scream",
+   "roles": {
+    "protagonist": "Charm",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Heart",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G003",
@@ -29,7 +43,14 @@
     "Edge"
    ],
    "bonus": "Box Office",
-   "clash": "Prestige"
+   "clash": "Prestige",
+   "roles": {
+    "protagonist": "Muscle",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Box Office",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G004",
@@ -39,7 +60,14 @@
     "Prestige"
    ],
    "bonus": "Scream",
-   "clash": "Laughs"
+   "clash": "Laughs",
+   "roles": {
+    "protagonist": "Prestige",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Prestige",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G005",
@@ -49,7 +77,14 @@
     "Muscle"
    ],
    "bonus": "Prestige",
-   "clash": "Charm"
+   "clash": "Charm",
+   "roles": {
+    "protagonist": "Muscle",
+    "antagonist": "Cult",
+    "loveInterest": "Charm",
+    "supporting": "Prestige",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G006",
@@ -59,7 +94,14 @@
     "Heart"
    ],
    "bonus": "Song & Dance",
-   "clash": "Edge"
+   "clash": "Edge",
+   "roles": {
+    "protagonist": "Heart",
+    "antagonist": "Cult",
+    "loveInterest": "Charm",
+    "supporting": "Prestige",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G007",
@@ -69,7 +111,14 @@
     "Cult"
    ],
    "bonus": "Box Office",
-   "clash": "Prestige"
+   "clash": "Prestige",
+   "roles": {
+    "protagonist": "Laughs",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Cult",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G008",
@@ -79,7 +128,14 @@
     "Heart"
    ],
    "bonus": "Edge",
-   "clash": "Box Office"
+   "clash": "Box Office",
+   "roles": {
+    "protagonist": "Prestige",
+    "antagonist": "Edge",
+    "loveInterest": "Heart",
+    "supporting": "Prestige",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G009",
@@ -89,7 +145,14 @@
     "Heart"
    ],
    "bonus": "Charm",
-   "clash": "Scream"
+   "clash": "Scream",
+   "roles": {
+    "protagonist": "Song & Dance",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Heart",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G010",
@@ -99,7 +162,14 @@
     "Charm"
    ],
    "bonus": "Edge",
-   "clash": "Song & Dance"
+   "clash": "Song & Dance",
+   "roles": {
+    "protagonist": "Muscle",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Prestige",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G011",
@@ -109,7 +179,14 @@
     "Cult"
    ],
    "bonus": "Muscle",
-   "clash": "Heart"
+   "clash": "Heart",
+   "roles": {
+    "protagonist": "Edge",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Cult",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G012",
@@ -119,7 +196,14 @@
     "Cult"
    ],
    "bonus": "Scream",
-   "clash": "Muscle"
+   "clash": "Muscle",
+   "roles": {
+    "protagonist": "Prestige",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Prestige",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G013",
@@ -129,7 +213,14 @@
     "Prestige"
    ],
    "bonus": "Heart",
-   "clash": "Laughs"
+   "clash": "Laughs",
+   "roles": {
+    "protagonist": "Muscle",
+    "antagonist": "Edge",
+    "loveInterest": "Heart",
+    "supporting": "Muscle",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G014",
@@ -139,7 +230,14 @@
     "Laughs"
    ],
    "bonus": "Charm",
-   "clash": "Edge"
+   "clash": "Edge",
+   "roles": {
+    "protagonist": "Muscle",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Muscle",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G015",
@@ -149,7 +247,14 @@
     "Heart"
    ],
    "bonus": "Muscle",
-   "clash": "Cult"
+   "clash": "Cult",
+   "roles": {
+    "protagonist": "Box Office",
+    "antagonist": "Edge",
+    "loveInterest": "Heart",
+    "supporting": "Heart",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G016",
@@ -159,7 +264,14 @@
     "Heart"
    ],
    "bonus": "Prestige",
-   "clash": "Muscle"
+   "clash": "Muscle",
+   "roles": {
+    "protagonist": "Charm",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Prestige",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G017",
@@ -169,7 +281,14 @@
     "Box Office"
    ],
    "bonus": "Edge",
-   "clash": "Heart"
+   "clash": "Heart",
+   "roles": {
+    "protagonist": "Charm",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Cult",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G018",
@@ -179,7 +298,14 @@
     "Song & Dance"
    ],
    "bonus": "Heart",
-   "clash": "Cult"
+   "clash": "Cult",
+   "roles": {
+    "protagonist": "Prestige",
+    "antagonist": "Edge",
+    "loveInterest": "Heart",
+    "supporting": "Prestige",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G019",
@@ -189,7 +315,14 @@
     "Box Office"
    ],
    "bonus": "Laughs",
-   "clash": "Cult"
+   "clash": "Cult",
+   "roles": {
+    "protagonist": "Muscle",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Box Office",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G020",
@@ -199,7 +332,14 @@
     "Laughs"
    ],
    "bonus": "Song & Dance",
-   "clash": "Scream"
+   "clash": "Scream",
+   "roles": {
+    "protagonist": "Heart",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Song & Dance",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G021",
@@ -209,7 +349,14 @@
     "Muscle"
    ],
    "bonus": "Box Office",
-   "clash": "Song & Dance"
+   "clash": "Song & Dance",
+   "roles": {
+    "protagonist": "Muscle",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Prestige",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G022",
@@ -219,7 +366,14 @@
     "Edge"
    ],
    "bonus": "Cult",
-   "clash": "Box Office"
+   "clash": "Box Office",
+   "roles": {
+    "protagonist": "Heart",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Heart",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G023",
@@ -229,7 +383,14 @@
     "Charm"
    ],
    "bonus": "Song & Dance",
-   "clash": "Muscle"
+   "clash": "Muscle",
+   "roles": {
+    "protagonist": "Prestige",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Prestige",
+    "lightRelief": "Laughs"
+   }
   },
   {
    "id": "G024",
@@ -239,7 +400,14 @@
     "Charm"
    ],
    "bonus": "Prestige",
-   "clash": "Box Office"
+   "clash": "Box Office",
+   "roles": {
+    "protagonist": "Edge",
+    "antagonist": "Edge",
+    "loveInterest": "Charm",
+    "supporting": "Prestige",
+    "lightRelief": "Laughs"
+   }
   }
  ]
 }

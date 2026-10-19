@@ -1,5 +1,5 @@
 {
- "note": "Every critic starts a cast on 2 Plot stamps, applies their effects, then clamps to 0-5. They print 'review' for 3+ stamps and 'pan' for 2 or fewer. Effect kinds are listed in src/game/critics.ts.",
+ "note": "Flavour only now: after scoring, a random critic gives a rave ('review') for a film on 10+ stamps or a 'pan' below that. The effects are no longer used for scoring; Plot comes from the genre's roles.",
  "cards": [
   {
    "id": "C001",

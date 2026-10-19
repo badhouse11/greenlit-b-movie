@@ -4,6 +4,8 @@ import {
   closeLot,
   drawLot,
   fastForward,
+  genreOf,
+  traitsHidden,
   houseFor,
   humans,
   humansFull,
@@ -183,11 +185,15 @@ export function SoloAuction({ game, act }: { game: Game; act: Act }) {
 
   return (
     <main className="page page--narrow bauction">
+      <div className="bgenre-strip">
+        <span className="t-wide">Now casting</span>
+        <strong className="t-ticket">{genreOf(game).name}</strong>
+      </div>
       <LastSale game={game} />
       {lot ? (
         <>
           <div className="bauction__lot">
-            <LotTicket key={lot.drawNo} card={lot.card} />
+            <LotTicket key={lot.drawNo} card={lot.card} hideTraits={traitsHidden(game)} />
           </div>
           <BidBoard game={game} fraction={a.fraction} call={a.call} />
           <div className="bcontrols" role="group" aria-label="Your bids">

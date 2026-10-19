@@ -82,7 +82,7 @@ export function Home({
               </>
             ) : (
               <>
-                <p className="bmode__line">Same puzzle for everyone in the world today. One go.</p>
+                <p className="bmode__line">Today’s genre is on the envelope. Cast it from instinct. Same puzzle for everyone, one go.</p>
                 <button className="btn btn--big btn--hot" onClick={onDailies}>
                   {today ? 'Carry on with today’s Dailies' : 'Play today’s Dailies'}
                 </button>

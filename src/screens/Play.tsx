@@ -3,9 +3,9 @@ import type { Game, Studio } from '../game/types';
 import {
   RULES,
   criticOf,
-  criticVerdict,
   filmTitle,
   finishReel,
+  genreKnown,
   genreOf,
   givePlot,
   houseFor,
@@ -24,7 +24,7 @@ import {
 import { loadDailies, streak } from '../lib/storage';
 import { SITE_URL } from '../lib/links';
 import { stock } from '../lib/palette';
-import { CriticClip, CrossSell, FilmTicket, GenreCard, LoyaltyCard, StudioStub } from '../components/Cards';
+import { CrossSell, FilmTicket, GenreCard, LoyaltyCard, StudioStub } from '../components/Cards';
 import { Ticket } from '../components/Ticket';
 import { SoloAuction, TableAuction } from './Auction';
 import { useCountdownToNextDaily } from './Home';
@@ -46,7 +46,7 @@ const PHASE_LABEL: Record<Game['phase'], string> = {
   commission: 'The commission',
   auction: 'Casting auction',
   reveal: 'The reveal',
-  critic: 'The critic',
+  critic: 'Title it',
   title: 'Title it',
   pitch: 'The pitches',
   scoring: 'Scoring',
@@ -105,7 +105,7 @@ function Phase(props: PlayProps) {
     case 'reveal':
       return <Reveal {...props} />;
     case 'critic':
-      return <CriticScreen {...props} />;
+      return <TitleIt {...props} />;
     case 'title':
       return <TitleIt {...props} />;
     case 'pitch':
@@ -129,20 +129,33 @@ function Commission({ game, act }: PlayProps) {
   return (
     <main className="page page--narrow centre-stack bcommission">
       <div className="t-wide">{game.mode === 'two' ? `Reel ${game.reel.number}` : game.mode === 'dailies' ? `Dailies #${game.puzzle}` : 'Free Play'}</div>
-      <div className="envelope" aria-label="A sealed envelope">
-        <div className="envelope__flap" aria-hidden="true" />
-        <div className="envelope__body">
-          <span className="t-mono">Commission no. {String(game.reel.number).padStart(2, '0')}</span>
-          <strong className="t-ticket">Genre classified</strong>
-          <span className="t-mono">To be opened after casting</span>
+      {genreKnown(game) ? (
+        <>
+          <div className="bcommission__genre">
+            <GenreCard genre={genreOf(game)} number={game.reel.number} sealed />
+          </div>
+          <p className="lede">
+            Every star carries secret trait stamps. This genre wants some of them, hates one, and has five roles to fill. You’ll see it all at the premiere.
+          </p>
+        </>
+      ) : (
+        <>
+        <div className="envelope" aria-label="A sealed envelope">
+          <div className="envelope__flap" aria-hidden="true" />
+          <div className="envelope__body">
+            <span className="t-mono">Commission no. {String(game.reel.number).padStart(2, '0')}</span>
+            <strong className="t-ticket">Genre classified</strong>
+            <span className="t-mono">To be opened after casting</span>
+          </div>
+          <div className="envelope__seal t-ticket" aria-hidden="true">
+            B
+          </div>
         </div>
-        <div className="envelope__seal t-ticket" aria-hidden="true">
-          B
-        </div>
-      </div>
-      <p className="lede">
-        The genre is sealed. Nobody sees it until casting closes. Bid on stars whose traits you think the film will want.
-      </p>
+        <p className="lede">
+          The genre is sealed. Nobody sees it until casting closes. Bid on stars whose traits you think the film will want.
+        </p>
+        </>
+      )}
       <section className="bcommission__rivals" aria-label="Your rivals">
         <h2 className="t-wide">{rivals.length === 1 ? 'Also bidding' : 'Today’s rivals'}</h2>
         {rivals.map((s) => (
@@ -154,7 +167,7 @@ function Commission({ game, act }: PlayProps) {
       </section>
       {game.mode === 'two' && <p className="muted">Lay the phone flat between you. Studio A sits at the bottom edge.</p>}
       <button className="btn btn--big btn--hot" onClick={() => act((g) => setPhase(g, 'auction'), { undoable: true })}>
-        Open the casting auction
+        {genreKnown(game) ? `Start casting your ${genreOf(game).name}` : 'Open the casting auction'}
       </button>
     </main>
   );
@@ -164,7 +177,7 @@ function Commission({ game, act }: PlayProps) {
 /*  The reveal                                                             */
 /* ====================================================================== */
 function Reveal({ game, act }: PlayProps) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(genreKnown(game));
   const genre = genreOf(game);
   if (!open) {
     return (
@@ -188,37 +201,16 @@ function Reveal({ game, act }: PlayProps) {
   const order = [...humans(game), ...game.studios.filter((s) => !isHuman(s))];
   return (
     <main className="page page--narrow centre-stack breveal">
-      <div className="t-wide">Your next picture is</div>
+      <div className="t-wide">{genreKnown(game) ? 'The premiere: traits revealed' : 'Your next picture is'}</div>
       <div className="breveal__card">
-        <GenreCard genre={genre} number={game.reel.number} />
+        <GenreCard genre={genre} number={game.reel.number} roles />
       </div>
-      <p className="lede">Solid stamps are what the genre wants (+2). Dashed is the bonus (+1). Struck through clashes (−1).</p>
+      <p className="lede">Solid stamps are what the genre wants (+2). Dashed is the bonus (+1). Struck through clashes (−1). The roles are your Plot.</p>
       <div className="breveal__casts">
         {order.map((s) => (
           <StudioStub key={s.id} studio={s} rs={game.reel.studios[s.id]} genre={genre} you={isHuman(s) && game.mode !== 'two'} />
         ))}
       </div>
-      <button className="btn btn--big btn--hot" onClick={() => act((g) => setPhase(g, 'critic'), { undoable: true })}>
-        Flip the critic
-      </button>
-    </main>
-  );
-}
-
-/* ====================================================================== */
-/*  The critic                                                             */
-/* ====================================================================== */
-function CriticScreen({ game, act }: PlayProps) {
-  const critic = criticOf(game);
-  return (
-    <main className="page page--narrow centre-stack bcritic">
-      <div className="t-wide">Tonight’s critic</div>
-      <CriticClip critic={critic} />
-      {game.mode === 'two' && (
-        <p className="muted">
-          In a Two-Hander you score each other’s Plot. This critic still judges {game.studios.find((s) => !isHuman(s))?.name}, and decides the Honest Critic bonus.
-        </p>
-      )}
       <button className="btn btn--big btn--hot" onClick={() => act((g) => setPhase(g, 'title'), { undoable: true })}>
         Title your {humans(game).length > 1 ? 'films' : 'film'}
       </button>
@@ -346,7 +338,7 @@ function Pitches({ game, act }: PlayProps) {
           Score the plot of {filmTitle(game, nextUp.id)}
         </h1>
         <p className="lede">
-          Be fair. If your stamps land within one of what {criticOf(game).name} would give, you bank an Honest Critic bonus point.
+          Be fair. The app also counts how many of the five roles their cast really fills. Land within one of that and you bank an Honest Critic bonus point.
         </p>
         <div className="punches punches--big" role="group" aria-label="Plot stamps">
           {Array.from({ length: RULES.stamps }, (_, i) => (
@@ -423,7 +415,7 @@ function Scoring({ game, act }: PlayProps) {
       <div className="page-head">
         <div>
           <div className="t-wide">
-            {genreOf(game).name} · reviewed by {criticOf(game).name}
+            {genreOf(game).name} · reel {game.reel.number}
           </div>
           <h1 className="page-title t-ticket">Punch the cards</h1>
         </div>
@@ -515,7 +507,7 @@ function SoloResult({ game, say, onLeave, onArchive, onFree }: PlayProps) {
   const ranking = reelRanking(game);
   const place = ranking.findIndex((r) => r.studio.id === me.id);
   const film = game.films.find((f) => f.reel === game.reel.number);
-  const verdict = criticVerdict(game, me.id);
+  const verdict = scorecard(game, me.id);
   const text = shareText(game, SITE_URL());
   const countdown = useCountdownToNextDaily();
   const all = loadDailies();

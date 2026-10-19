@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Film, Game } from './game/types';
 import { RuleError, dailySeed, newGame, puzzleNumber, utcDateKey } from './game/engine';
-import { addToArchive, loadArchive, loadDailies, loadGame, saveArchive, saveDaily, saveGame } from './lib/storage';
+import { addToArchive, forgetDaily, loadArchive, loadDailies, loadGame, saveArchive, saveDaily, saveGame } from './lib/storage';
 import { Home } from './screens/Home';
 import { HowItWorks } from './screens/HowItWorks';
 import { Setup } from './screens/Setup';
@@ -19,6 +19,17 @@ export interface Toast {
 export type Act = (fn: (g: Game) => Game, opts?: { undoable?: boolean; quiet?: boolean }) => boolean;
 
 export const YOU = { name: 'Your Studio', colour: 'darlington' };
+
+/** Testing aid: opening the site with ?fresh wipes today's Dailies on this device, then tidies the address. */
+(() => {
+  try {
+    if (!new URLSearchParams(window.location.search).has('fresh')) return;
+    forgetDaily(utcDateKey());
+    window.history.replaceState(null, '', window.location.pathname);
+  } catch {
+    /* no storage: nothing to forget */
+  }
+})();
 
 export default function App() {
   const [game, setGame] = useState<Game | null>(null);

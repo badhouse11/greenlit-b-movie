@@ -71,3 +71,11 @@ export function streak(all: Record<string, DailyRecord>, todayKey: string): numb
   while (all[day(todayKey, start + n)]?.done) n++;
   return n;
 }
+
+/** Testing aid: forget one day's Dailies on this device so it can be played again. */
+export function forgetDaily(dateKey: string) {
+  const all = loadDailies();
+  if (!all[dateKey]) return;
+  delete all[dateKey];
+  write(KEYS.daily, all);
+}

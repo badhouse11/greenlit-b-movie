@@ -1,0 +1,947 @@
+{
+ "deck": "legacy",
+ "title": "The Legacy Vault",
+ "note": "Late, great legends, three traits each. They surface at hidden points in every reel.",
+ "cards": [
+  {
+   "id": "L001",
+   "name": "Marilyn Monroe",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Song & Dance",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L002",
+   "name": "Marlon Brando",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Edge",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "L003",
+   "name": "Audrey Hepburn",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Prestige",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "L004",
+   "name": "James Dean",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Cult",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L005",
+   "name": "Robin Williams",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Heart",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L006",
+   "name": "Heath Ledger",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Cult",
+    "Scream"
+   ]
+  },
+  {
+   "id": "L007",
+   "name": "Alan Rickman",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Prestige",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "L008",
+   "name": "Maggie Smith",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Laughs",
+    "Heart"
+   ]
+  },
+  {
+   "id": "L009",
+   "name": "Gene Wilder",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Cult",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "L010",
+   "name": "Christopher Lee",
+   "gender": "m",
+   "traits": [
+    "Scream",
+    "Cult",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "L011",
+   "name": "Elizabeth Taylor",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Charm",
+    "Edge"
+   ]
+  },
+  {
+   "id": "L012",
+   "name": "Sidney Poitier",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Heart",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L013",
+   "name": "Paul Newman",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Prestige",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "L014",
+   "name": "Carrie Fisher",
+   "gender": "f",
+   "traits": [
+    "Muscle",
+    "Cult",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "L015",
+   "name": "Patrick Swayze",
+   "gender": "m",
+   "traits": [
+    "Song & Dance",
+    "Heart",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "L016",
+   "name": "Humphrey Bogart",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Charm",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "L017",
+   "name": "Charlie Chaplin",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Heart",
+    "Cult"
+   ]
+  },
+  {
+   "id": "L018",
+   "name": "Cary Grant",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Laughs",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "L019",
+   "name": "Grace Kelly",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Prestige",
+    "Heart"
+   ]
+  },
+  {
+   "id": "L020",
+   "name": "John Wayne",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Box Office",
+    "Edge"
+   ]
+  },
+  {
+   "id": "L021",
+   "name": "Katharine Hepburn",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Laughs",
+    "Edge"
+   ]
+  },
+  {
+   "id": "L022",
+   "name": "Bette Davis",
+   "gender": "f",
+   "traits": [
+    "Edge",
+    "Prestige",
+    "Scream"
+   ]
+  },
+  {
+   "id": "L023",
+   "name": "Judy Garland",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Heart",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L024",
+   "name": "Fred Astaire",
+   "gender": "m",
+   "traits": [
+    "Song & Dance",
+    "Charm",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "L025",
+   "name": "Bruce Lee",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Cult",
+    "Edge"
+   ]
+  },
+  {
+   "id": "L026",
+   "name": "Philip Seymour Hoffman",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Edge",
+    "Cult"
+   ]
+  },
+  {
+   "id": "L027",
+   "name": "Chadwick Boseman",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Heart",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "L028",
+   "name": "John Candy",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Heart",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L029",
+   "name": "Leslie Nielsen",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Cult",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L030",
+   "name": "Steve McQueen",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Charm",
+    "Edge"
+   ]
+  },
+  {
+   "id": "L031",
+   "name": "Gene Hackman",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Prestige",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "L032",
+   "name": "Robert Redford",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Prestige",
+    "Heart"
+   ]
+  },
+  {
+   "id": "L033",
+   "name": "Diane Keaton",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Charm",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "L034",
+   "name": "Peter Sellers",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Cult",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "L035",
+   "name": "Ingrid Bergman",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Prestige",
+    "Heart"
+   ]
+  },
+  {
+   "id": "L036",
+   "name": "Orson Welles",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Cult",
+    "Edge"
+   ]
+  },
+  {
+   "id": "L037",
+   "name": "Vivien Leigh",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Charm",
+    "Edge"
+   ]
+  },
+  {
+   "id": "L038",
+   "name": "Lauren Bacall",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Edge",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "L039",
+   "name": "Rik Mayall",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Cult",
+    "Edge"
+   ]
+  },
+  {
+   "id": "L040",
+   "name": "Chris Farley",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Cult",
+    "Heart"
+   ]
+  },
+  {
+   "id": "L041",
+   "name": "Olivia de Havilland",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Heart",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L042",
+   "name": "Betty White",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Heart",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L043",
+   "name": "Raquel Welch",
+   "gender": "f",
+   "traits": [
+    "Muscle",
+    "Charm",
+    "Cult"
+   ]
+  },
+  {
+   "id": "L044",
+   "name": "Angela Lansbury",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Song & Dance",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "L045",
+   "name": "Marlene Dietrich",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Edge",
+    "Cult"
+   ]
+  },
+  {
+   "id": "L046",
+   "name": "Greta Garbo",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Edge",
+    "Cult"
+   ]
+  },
+  {
+   "id": "L047",
+   "name": "Rita Hayworth",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Charm",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L048",
+   "name": "Ava Gardner",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Edge",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L049",
+   "name": "Joan Crawford",
+   "gender": "f",
+   "traits": [
+    "Edge",
+    "Scream",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "L050",
+   "name": "Doris Day",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Laughs",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L051",
+   "name": "Natalie Wood",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Heart",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L052",
+   "name": "Jean Harlow",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Laughs",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L053",
+   "name": "Shirley Temple",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Heart",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L054",
+   "name": "Mae West",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Edge",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L055",
+   "name": "Lucille Ball",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Heart",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L056",
+   "name": "Ginger Rogers",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Charm",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "L057",
+   "name": "Barbara Stanwyck",
+   "gender": "f",
+   "traits": [
+    "Edge",
+    "Prestige",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "L058",
+   "name": "Debbie Reynolds",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Laughs",
+    "Heart"
+   ]
+  },
+  {
+   "id": "L059",
+   "name": "Dorothy Dandridge",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Prestige",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L060",
+   "name": "Hattie McDaniel",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Heart",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "L061",
+   "name": "Eartha Kitt",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Edge",
+    "Cult"
+   ]
+  },
+  {
+   "id": "L062",
+   "name": "Cicely Tyson",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Heart",
+    "Edge"
+   ]
+  },
+  {
+   "id": "L063",
+   "name": "Diana Rigg",
+   "gender": "f",
+   "traits": [
+    "Muscle",
+    "Edge",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L064",
+   "name": "Glenda Jackson",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Edge",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "L065",
+   "name": "Shelley Duvall",
+   "gender": "f",
+   "traits": [
+    "Scream",
+    "Cult",
+    "Heart"
+   ]
+  },
+  {
+   "id": "L066",
+   "name": "Gena Rowlands",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Edge",
+    "Heart"
+   ]
+  },
+  {
+   "id": "L067",
+   "name": "Whitney Houston",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Heart",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L068",
+   "name": "Anne Bancroft",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Edge",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "L069",
+   "name": "Val Kilmer",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Cult",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L070",
+   "name": "Terence Stamp",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Cult",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "L071",
+   "name": "Sean Connery",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Charm",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L072",
+   "name": "Christopher Plummer",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Song & Dance",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L073",
+   "name": "Kirk Douglas",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Prestige",
+    "Edge"
+   ]
+  },
+  {
+   "id": "L074",
+   "name": "Matthew Perry",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Heart",
+    "Cult"
+   ]
+  },
+  {
+   "id": "L075",
+   "name": "Ray Liotta",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Scream",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "L076",
+   "name": "Clark Gable",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Box Office",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "L077",
+   "name": "Gregory Peck",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Heart",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "L078",
+   "name": "James Stewart",
+   "gender": "m",
+   "traits": [
+    "Heart",
+    "Charm",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "L079",
+   "name": "Gene Kelly",
+   "gender": "m",
+   "traits": [
+    "Song & Dance",
+    "Charm",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "L080",
+   "name": "Buster Keaton",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Muscle",
+    "Cult"
+   ]
+  },
+  {
+   "id": "L081",
+   "name": "Spencer Tracy",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Heart",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "L082",
+   "name": "Burt Reynolds",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Laughs",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L083",
+   "name": "Dennis Hopper",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Cult",
+    "Scream"
+   ]
+  },
+  {
+   "id": "L084",
+   "name": "Jack Lemmon",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Heart",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "L085",
+   "name": "Richard Burton",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Edge",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L086",
+   "name": "Peter O'Toole",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Muscle",
+    "Edge"
+   ]
+  },
+  {
+   "id": "L087",
+   "name": "Alec Guinness",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Cult",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "L088",
+   "name": "Roger Moore",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Laughs",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "L089",
+   "name": "John Hurt",
+   "gender": "m",
+   "traits": [
+    "Scream",
+    "Prestige",
+    "Cult"
+   ]
+  },
+  {
+   "id": "L090",
+   "name": "Paul Walker",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Box Office",
+    "Charm"
+   ]
+  },
+  {
+   "id": "L091",
+   "name": "River Phoenix",
+   "gender": "m",
+   "traits": [
+    "Heart",
+    "Cult",
+    "Edge"
+   ]
+  },
+  {
+   "id": "L092",
+   "name": "John Belushi",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Cult",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "L093",
+   "name": "Donald Sutherland",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Scream",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "L094",
+   "name": "James Earl Jones",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Edge",
+    "Heart"
+   ]
+  }
+ ]
+}

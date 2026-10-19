@@ -1,0 +1,15 @@
+{
+ "note": "The fixed trait list. Every star's traits must come from here.",
+ "traits": [
+  "Muscle",
+  "Laughs",
+  "Heart",
+  "Scream",
+  "Prestige",
+  "Box Office",
+  "Cult",
+  "Song & Dance",
+  "Charm",
+  "Edge"
+ ]
+}

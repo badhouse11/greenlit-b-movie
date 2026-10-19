@@ -1,0 +1,359 @@
+{
+ "note": "Every critic starts a cast on 2 Plot stamps, applies their effects, then clamps to 0-5. They print 'review' for 3+ stamps and 'pan' for 2 or fewer. Effect kinds are listed in src/game/critics.ts.",
+ "cards": [
+  {
+   "id": "C001",
+   "name": "Vera Plinth",
+   "paper": "The Sunday Clarion",
+   "taste": "Loves a legend",
+   "rule": "+1 per vault legend. -1 if you have none.",
+   "review": "A triumph. I wept into my popcorn.",
+   "effects": [
+    {
+     "kind": "perLegend",
+     "pts": 1
+    },
+    {
+     "kind": "noLegend",
+     "pts": -1
+    }
+   ],
+   "pan": "I wanted a legend. I got a lanyard."
+  },
+  {
+   "id": "C002",
+   "name": "Rex Tightwad",
+   "paper": "The Ledger",
+   "taste": "Hates a big spender",
+   "rule": "-2 if any star cost $8M or more. +2 if none cost more than $5M.",
+   "review": "Every dollar is on screen. Sadly, so is the bill.",
+   "effects": [
+    {
+     "kind": "anyPriceAtLeast",
+     "price": 8,
+     "pts": -2
+    },
+    {
+     "kind": "allPriceAtMost",
+     "price": 5,
+     "pts": 2
+    }
+   ],
+   "pan": "Where did all the money go? Not on screen."
+  },
+  {
+   "id": "C003",
+   "name": "Dot Merriweather",
+   "paper": "Picturegoer Weekly",
+   "taste": "Sucker for a double act",
+   "rule": "+2 if three or more of your stars share a trait.",
+   "review": "They finish each other's sandwiches. Glorious.",
+   "effects": [
+    {
+     "kind": "sharedTrait",
+     "count": 3,
+     "pts": 2
+    }
+   ],
+   "pan": "Nobody on screen has met anybody else on screen."
+  },
+  {
+   "id": "C004",
+   "name": "Gloria Ticketstub",
+   "paper": "The Multiplex Bugle",
+   "taste": "Wants a crowd-pleaser",
+   "rule": "+1 per Box Office star.",
+   "review": "Queues round the block. Bring a flask.",
+   "effects": [
+    {
+     "kind": "perTrait",
+     "trait": "Box Office",
+     "pts": 1
+    }
+   ],
+   "pan": "Half-empty on a Saturday night. Ouch."
+  },
+  {
+   "id": "C005",
+   "name": "Sir Aubrey Fennimore-Blythe",
+   "paper": "The Quarterly Review of Cinema",
+   "taste": "Prestige snob",
+   "rule": "+1 per Prestige star. -1 per Laughs star.",
+   "review": "One felt, at last, in the presence of Art.",
+   "effects": [
+    {
+     "kind": "perTrait",
+     "trait": "Prestige",
+     "pts": 1
+    },
+    {
+     "kind": "perTrait",
+     "trait": "Laughs",
+     "pts": -1
+    }
+   ],
+   "pan": "A romp. I asked for Art."
+  },
+  {
+   "id": "C006",
+   "name": "Midnight Mo",
+   "paper": "Late Show Zine",
+   "taste": "Cult kid",
+   "rule": "+1 per Cult star. -1 per Box Office star.",
+   "review": "Saw it nine times. Will see it ninety.",
+   "effects": [
+    {
+     "kind": "perTrait",
+     "trait": "Cult",
+     "pts": 1
+    },
+    {
+     "kind": "perTrait",
+     "trait": "Box Office",
+     "pts": -1
+    }
+   ],
+   "pan": "Too clean. Too shiny. Too popular."
+  },
+  {
+   "id": "C007",
+   "name": "Penny Farthing",
+   "paper": "Thrift Monthly",
+   "taste": "Bargain hunter",
+   "rule": "+1 per star you bought for $1M.",
+   "review": "Champagne casting on a lemonade budget.",
+   "effects": [
+    {
+     "kind": "perPrice",
+     "price": 1,
+     "pts": 1
+    }
+   ],
+   "pan": "Expensive and it shows. Not in a good way."
+  },
+  {
+   "id": "C008",
+   "name": "Polly Glot",
+   "paper": "The Eclectic",
+   "taste": "Wants variety",
+   "rule": "+1 for every different trait in your cast beyond five.",
+   "review": "A bit of everything, like a good buffet.",
+   "effects": [
+    {
+     "kind": "variety",
+     "over": 5,
+     "pts": 1
+    }
+   ],
+   "pan": "One flavour, all the way down."
+  },
+  {
+   "id": "C009",
+   "name": "Barry Blockbuster",
+   "paper": "Big Screen Weekly",
+   "taste": "Goes big",
+   "rule": "+2 if any star cost $10M or more.",
+   "review": "You can see the money. I love seeing the money.",
+   "effects": [
+    {
+     "kind": "anyPriceAtLeast",
+     "price": 10,
+     "pts": 2
+    }
+   ],
+   "pan": "Small. Timid. Cheap-looking. Yawn."
+  },
+  {
+   "id": "C010",
+   "name": "Hester Grimm",
+   "paper": "Fright Night Gazette",
+   "taste": "Scream connoisseur",
+   "rule": "+1 per Scream star.",
+   "review": "I slept with the lights on. Five stars.",
+   "effects": [
+    {
+     "kind": "perTrait",
+     "trait": "Scream",
+     "pts": 1
+    }
+   ],
+   "pan": "Not one scream. I checked my pulse."
+  },
+  {
+   "id": "C011",
+   "name": "Dickie Dazzle",
+   "paper": "The Footlights",
+   "taste": "Show-tune tragic",
+   "rule": "+1 per Song & Dance star.",
+   "review": "I left humming. I'm still humming.",
+   "effects": [
+    {
+     "kind": "perTrait",
+     "trait": "Song & Dance",
+     "pts": 1
+    }
+   ],
+   "pan": "Not a single number. Not one!"
+  },
+  {
+   "id": "C012",
+   "name": "Connie Clash",
+   "paper": "The Daily Continuity",
+   "taste": "Hates a clash",
+   "rule": "+2 if no star carries the genre's Clash. -1 per star that does.",
+   "review": "Nothing jars. Everything purrs.",
+   "effects": [
+    {
+     "kind": "noClash",
+     "pts": 2
+    },
+    {
+     "kind": "perClash",
+     "pts": -1
+    }
+   ],
+   "pan": "It clanks. It jars. It hurts."
+  },
+  {
+   "id": "C013",
+   "name": "Professor Stickler",
+   "paper": "Film Studies Journal",
+   "taste": "Genre purist",
+   "rule": "+1 per star matching a Want, then -2.",
+   "review": "Textbook. I mean that as a compliment.",
+   "effects": [
+    {
+     "kind": "perWant",
+     "pts": 1
+    },
+    {
+     "kind": "flat",
+     "pts": -2
+    }
+   ],
+   "pan": "This is not what the genre ordered."
+  },
+  {
+   "id": "C014",
+   "name": "Lionel Lard",
+   "paper": "Gym & Cinema",
+   "taste": "Muscle fan",
+   "rule": "+1 per Muscle star.",
+   "review": "Biceps you could hang a coat on.",
+   "effects": [
+    {
+     "kind": "perTrait",
+     "trait": "Muscle",
+     "pts": 1
+    }
+   ],
+   "pan": "Weedy. Where are the arms?"
+  },
+  {
+   "id": "C015",
+   "name": "Agnes Weep",
+   "paper": "Hankie Review",
+   "taste": "Wants a good cry",
+   "rule": "+1 per Heart star.",
+   "review": "Bring tissues. Bring a spare box.",
+   "effects": [
+    {
+     "kind": "perTrait",
+     "trait": "Heart",
+     "pts": 1
+    }
+   ],
+   "pan": "My hankie stayed dry. Shame."
+  },
+  {
+   "id": "C016",
+   "name": "Chuckles McGraw",
+   "paper": "Pratfall Press",
+   "taste": "Wants laughs",
+   "rule": "+1 per Laughs star. -1 per Prestige star.",
+   "review": "I laughed so hard I missed the ending.",
+   "effects": [
+    {
+     "kind": "perTrait",
+     "trait": "Laughs",
+     "pts": 1
+    },
+    {
+     "kind": "perTrait",
+     "trait": "Prestige",
+     "pts": -1
+    }
+   ],
+   "pan": "I smiled once. It was at the trailer."
+  },
+  {
+   "id": "C017",
+   "name": "Ruby Velvet",
+   "paper": "The Matinee Idol",
+   "taste": "Swoons for charm",
+   "rule": "+1 per Charm star.",
+   "review": "I'd follow this cast into a burning building.",
+   "effects": [
+    {
+     "kind": "perTrait",
+     "trait": "Charm",
+     "pts": 1
+    }
+   ],
+   "pan": "Charisma vacuum. I left early."
+  },
+  {
+   "id": "C018",
+   "name": "Edgar Razor",
+   "paper": "The Underground",
+   "taste": "Likes it sharp",
+   "rule": "+1 per Edge star. -1 per Heart star.",
+   "review": "Dangerous. Unrepentant. Necessary.",
+   "effects": [
+    {
+     "kind": "perTrait",
+     "trait": "Edge",
+     "pts": 1
+    },
+    {
+     "kind": "perTrait",
+     "trait": "Heart",
+     "pts": -1
+    }
+   ],
+   "pan": "Soft. Safe. Sentimental."
+  },
+  {
+   "id": "C019",
+   "name": "Mabel Even-Stevens",
+   "paper": "The Ensemble",
+   "taste": "Loves an ensemble",
+   "rule": "+2 if every star cost between $2M and $6M.",
+   "review": "No egos, just teamwork. Lovely.",
+   "effects": [
+    {
+     "kind": "allPriceBetween",
+     "min": 2,
+     "max": 6,
+     "pts": 2
+    }
+   ],
+   "pan": "Who's the star? Everyone's arguing."
+  },
+  {
+   "id": "C020",
+   "name": "Old Harold",
+   "paper": "The Projectionist",
+   "taste": "Roots for the underdog",
+   "rule": "+2 if you spent the least of any studio.",
+   "review": "Made for tuppence. Worth a fortune.",
+   "effects": [
+    {
+     "kind": "spentLeast",
+     "pts": 2
+    }
+   ],
+   "pan": "Money doesn't buy taste. Proved here."
+  }
+ ]
+}

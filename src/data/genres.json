@@ -1,0 +1,245 @@
+{
+ "note": "Wants score +2 per matching star, bonus +1, clash -1.",
+ "cards": [
+  {
+   "id": "G001",
+   "name": "Horror",
+   "wants": [
+    "Scream",
+    "Edge"
+   ],
+   "bonus": "Cult",
+   "clash": "Song & Dance"
+  },
+  {
+   "id": "G002",
+   "name": "Romantic Comedy",
+   "wants": [
+    "Charm",
+    "Laughs"
+   ],
+   "bonus": "Heart",
+   "clash": "Scream"
+  },
+  {
+   "id": "G003",
+   "name": "Action",
+   "wants": [
+    "Muscle",
+    "Edge"
+   ],
+   "bonus": "Box Office",
+   "clash": "Prestige"
+  },
+  {
+   "id": "G004",
+   "name": "Thriller",
+   "wants": [
+    "Edge",
+    "Prestige"
+   ],
+   "bonus": "Scream",
+   "clash": "Laughs"
+  },
+  {
+   "id": "G005",
+   "name": "Science Fiction",
+   "wants": [
+    "Cult",
+    "Muscle"
+   ],
+   "bonus": "Prestige",
+   "clash": "Charm"
+  },
+  {
+   "id": "G006",
+   "name": "Fantasy",
+   "wants": [
+    "Cult",
+    "Heart"
+   ],
+   "bonus": "Song & Dance",
+   "clash": "Edge"
+  },
+  {
+   "id": "G007",
+   "name": "Comedy",
+   "wants": [
+    "Laughs",
+    "Cult"
+   ],
+   "bonus": "Box Office",
+   "clash": "Prestige"
+  },
+  {
+   "id": "G008",
+   "name": "Drama",
+   "wants": [
+    "Prestige",
+    "Heart"
+   ],
+   "bonus": "Edge",
+   "clash": "Box Office"
+  },
+  {
+   "id": "G009",
+   "name": "Musical",
+   "wants": [
+    "Song & Dance",
+    "Heart"
+   ],
+   "bonus": "Charm",
+   "clash": "Scream"
+  },
+  {
+   "id": "G010",
+   "name": "Western",
+   "wants": [
+    "Muscle",
+    "Charm"
+   ],
+   "bonus": "Edge",
+   "clash": "Song & Dance"
+  },
+  {
+   "id": "G011",
+   "name": "Crime",
+   "wants": [
+    "Edge",
+    "Cult"
+   ],
+   "bonus": "Muscle",
+   "clash": "Heart"
+  },
+  {
+   "id": "G012",
+   "name": "Mystery",
+   "wants": [
+    "Prestige",
+    "Cult"
+   ],
+   "bonus": "Scream",
+   "clash": "Muscle"
+  },
+  {
+   "id": "G013",
+   "name": "War",
+   "wants": [
+    "Muscle",
+    "Prestige"
+   ],
+   "bonus": "Heart",
+   "clash": "Laughs"
+  },
+  {
+   "id": "G014",
+   "name": "Adventure",
+   "wants": [
+    "Muscle",
+    "Laughs"
+   ],
+   "bonus": "Charm",
+   "clash": "Edge"
+  },
+  {
+   "id": "G015",
+   "name": "Disaster",
+   "wants": [
+    "Box Office",
+    "Heart"
+   ],
+   "bonus": "Muscle",
+   "clash": "Cult"
+  },
+  {
+   "id": "G016",
+   "name": "Romance",
+   "wants": [
+    "Charm",
+    "Heart"
+   ],
+   "bonus": "Prestige",
+   "clash": "Muscle"
+  },
+  {
+   "id": "G017",
+   "name": "Heist",
+   "wants": [
+    "Charm",
+    "Box Office"
+   ],
+   "bonus": "Edge",
+   "clash": "Heart"
+  },
+  {
+   "id": "G018",
+   "name": "Biopic",
+   "wants": [
+    "Prestige",
+    "Song & Dance"
+   ],
+   "bonus": "Heart",
+   "clash": "Cult"
+  },
+  {
+   "id": "G019",
+   "name": "Superhero",
+   "wants": [
+    "Muscle",
+    "Box Office"
+   ],
+   "bonus": "Laughs",
+   "clash": "Cult"
+  },
+  {
+   "id": "G020",
+   "name": "Christmas Film",
+   "wants": [
+    "Heart",
+    "Laughs"
+   ],
+   "bonus": "Song & Dance",
+   "clash": "Scream"
+  },
+  {
+   "id": "G021",
+   "name": "Sports",
+   "wants": [
+    "Heart",
+    "Muscle"
+   ],
+   "bonus": "Box Office",
+   "clash": "Song & Dance"
+  },
+  {
+   "id": "G022",
+   "name": "Coming-of-Age",
+   "wants": [
+    "Heart",
+    "Edge"
+   ],
+   "bonus": "Cult",
+   "clash": "Box Office"
+  },
+  {
+   "id": "G023",
+   "name": "Period Drama",
+   "wants": [
+    "Prestige",
+    "Charm"
+   ],
+   "bonus": "Song & Dance",
+   "clash": "Muscle"
+  },
+  {
+   "id": "G024",
+   "name": "Film Noir",
+   "wants": [
+    "Edge",
+    "Charm"
+   ],
+   "bonus": "Prestige",
+   "clash": "Box Office"
+  }
+ ]
+}

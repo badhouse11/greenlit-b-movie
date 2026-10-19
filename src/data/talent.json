@@ -1,0 +1,1555 @@
+{
+ "deck": "talent",
+ "title": "The Talent Deck",
+ "note": "Living stars, two traits each. Edit freely; ids must stay unique. gender is f or m: draws alternate between them. Traits must come from traits.json.",
+ "cards": [
+  {
+   "id": "T001",
+   "name": "Leonardo DiCaprio",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T002",
+   "name": "Meryl Streep",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "T003",
+   "name": "Brad Pitt",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T004",
+   "name": "Margot Robbie",
+   "gender": "f",
+   "traits": [
+    "Box Office",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T005",
+   "name": "Tom Cruise",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T006",
+   "name": "Zendaya",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T007",
+   "name": "Denzel Washington",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T008",
+   "name": "Florence Pugh",
+   "gender": "f",
+   "traits": [
+    "Scream",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T009",
+   "name": "Ryan Gosling",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "T010",
+   "name": "Emma Stone",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "T011",
+   "name": "Timothée Chalamet",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T012",
+   "name": "Cillian Murphy",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T013",
+   "name": "Jennifer Lawrence",
+   "gender": "f",
+   "traits": [
+    "Box Office",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T014",
+   "name": "Samuel L. Jackson",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T015",
+   "name": "Cate Blanchett",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T016",
+   "name": "Joaquin Phoenix",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T017",
+   "name": "Anne Hathaway",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "T018",
+   "name": "Pedro Pascal",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T019",
+   "name": "Tom Hanks",
+   "gender": "m",
+   "traits": [
+    "Heart",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T020",
+   "name": "Julia Roberts",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T021",
+   "name": "Scarlett Johansson",
+   "gender": "f",
+   "traits": [
+    "Muscle",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T022",
+   "name": "Keanu Reeves",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T023",
+   "name": "Will Smith",
+   "gender": "m",
+   "traits": [
+    "Box Office",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T024",
+   "name": "Nicole Kidman",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Scream"
+   ]
+  },
+  {
+   "id": "T025",
+   "name": "Robert Downey Jr.",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T026",
+   "name": "Natalie Portman",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T027",
+   "name": "Johnny Depp",
+   "gender": "m",
+   "traits": [
+    "Cult",
+    "Scream"
+   ]
+  },
+  {
+   "id": "T028",
+   "name": "Angelina Jolie",
+   "gender": "f",
+   "traits": [
+    "Muscle",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T029",
+   "name": "George Clooney",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T030",
+   "name": "Sandra Bullock",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T031",
+   "name": "Matt Damon",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T032",
+   "name": "Viola Davis",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T033",
+   "name": "Morgan Freeman",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T034",
+   "name": "Kate Winslet",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T035",
+   "name": "Christian Bale",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T036",
+   "name": "Hugh Jackman",
+   "gender": "m",
+   "traits": [
+    "Song & Dance",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T037",
+   "name": "Dwayne Johnson",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T038",
+   "name": "Jennifer Aniston",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T039",
+   "name": "Keira Knightley",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T040",
+   "name": "Daniel Day-Lewis",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T041",
+   "name": "Judi Dench",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T042",
+   "name": "Jack Black",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "T043",
+   "name": "Jason Statham",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T044",
+   "name": "Danny DeVito",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T045",
+   "name": "Whoopi Goldberg",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "T046",
+   "name": "Al Pacino",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T047",
+   "name": "Robert De Niro",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T048",
+   "name": "Harrison Ford",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T049",
+   "name": "Arnold Schwarzenegger",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T050",
+   "name": "Sylvester Stallone",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T051",
+   "name": "Jim Carrey",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T052",
+   "name": "Adam Sandler",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T053",
+   "name": "Will Ferrell",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "T054",
+   "name": "Eddie Murphy",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T055",
+   "name": "Jackie Chan",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T056",
+   "name": "Michelle Yeoh",
+   "gender": "f",
+   "traits": [
+    "Muscle",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T057",
+   "name": "Nicolas Cage",
+   "gender": "m",
+   "traits": [
+    "Cult",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T058",
+   "name": "Anthony Hopkins",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Scream"
+   ]
+  },
+  {
+   "id": "T059",
+   "name": "Helen Mirren",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T060",
+   "name": "Ian McKellen",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T061",
+   "name": "Emma Thompson",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T062",
+   "name": "Hugh Grant",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T063",
+   "name": "Colin Firth",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T064",
+   "name": "Daniel Craig",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T065",
+   "name": "Idris Elba",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T066",
+   "name": "Benedict Cumberbatch",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T067",
+   "name": "Tom Hardy",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T068",
+   "name": "Jake Gyllenhaal",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Scream"
+   ]
+  },
+  {
+   "id": "T069",
+   "name": "Chris Hemsworth",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T070",
+   "name": "Ryan Reynolds",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T071",
+   "name": "Mark Ruffalo",
+   "gender": "m",
+   "traits": [
+    "Heart",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T072",
+   "name": "Zoe Saldaña",
+   "gender": "f",
+   "traits": [
+    "Box Office",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T073",
+   "name": "Halle Berry",
+   "gender": "f",
+   "traits": [
+    "Muscle",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T074",
+   "name": "Charlize Theron",
+   "gender": "f",
+   "traits": [
+    "Muscle",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T075",
+   "name": "Amy Adams",
+   "gender": "f",
+   "traits": [
+    "Heart",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "T076",
+   "name": "Saoirse Ronan",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T077",
+   "name": "Austin Butler",
+   "gender": "m",
+   "traits": [
+    "Song & Dance",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T078",
+   "name": "Paul Mescal",
+   "gender": "m",
+   "traits": [
+    "Heart",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T079",
+   "name": "Barry Keoghan",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Scream"
+   ]
+  },
+  {
+   "id": "T080",
+   "name": "Jacob Elordi",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T081",
+   "name": "Sydney Sweeney",
+   "gender": "f",
+   "traits": [
+    "Scream",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T082",
+   "name": "Jenna Ortega",
+   "gender": "f",
+   "traits": [
+    "Scream",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T083",
+   "name": "Anya Taylor-Joy",
+   "gender": "f",
+   "traits": [
+    "Scream",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T084",
+   "name": "Tom Holland",
+   "gender": "m",
+   "traits": [
+    "Box Office",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T085",
+   "name": "Daniel Kaluuya",
+   "gender": "m",
+   "traits": [
+    "Scream",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T086",
+   "name": "Lupita Nyong'o",
+   "gender": "f",
+   "traits": [
+    "Scream",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T087",
+   "name": "Michael B. Jordan",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T088",
+   "name": "Glen Powell",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T089",
+   "name": "Bill Murray",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T090",
+   "name": "Steve Carell",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T091",
+   "name": "Melissa McCarthy",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T092",
+   "name": "Tilda Swinton",
+   "gender": "f",
+   "traits": [
+    "Cult",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T093",
+   "name": "Willem Dafoe",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Scream"
+   ]
+  },
+  {
+   "id": "T094",
+   "name": "Javier Bardem",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T095",
+   "name": "Penélope Cruz",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T096",
+   "name": "Gary Oldman",
+   "gender": "m",
+   "traits": [
+    "Cult",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T097",
+   "name": "Emily Blunt",
+   "gender": "f",
+   "traits": [
+    "Scream",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T098",
+   "name": "Robert Pattinson",
+   "gender": "m",
+   "traits": [
+    "Cult",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T099",
+   "name": "Olivia Colman",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T100",
+   "name": "Rowan Atkinson",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T101",
+   "name": "Jodie Foster",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T102",
+   "name": "Reese Witherspoon",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T103",
+   "name": "Cameron Diaz",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T104",
+   "name": "Drew Barrymore",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Scream"
+   ]
+  },
+  {
+   "id": "T105",
+   "name": "Salma Hayek",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T106",
+   "name": "Jennifer Lopez",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T107",
+   "name": "Gal Gadot",
+   "gender": "f",
+   "traits": [
+    "Muscle",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T108",
+   "name": "Kristen Stewart",
+   "gender": "f",
+   "traits": [
+    "Cult",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T109",
+   "name": "Kirsten Dunst",
+   "gender": "f",
+   "traits": [
+    "Cult",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T110",
+   "name": "Jamie Lee Curtis",
+   "gender": "f",
+   "traits": [
+    "Scream",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T111",
+   "name": "Sigourney Weaver",
+   "gender": "f",
+   "traits": [
+    "Scream",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T112",
+   "name": "Glenn Close",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Scream"
+   ]
+  },
+  {
+   "id": "T113",
+   "name": "Michelle Pfeiffer",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "T114",
+   "name": "Julianne Moore",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T115",
+   "name": "Uma Thurman",
+   "gender": "f",
+   "traits": [
+    "Muscle",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T116",
+   "name": "Rachel McAdams",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T117",
+   "name": "Rachel Weisz",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T118",
+   "name": "Octavia Spencer",
+   "gender": "f",
+   "traits": [
+    "Heart",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T119",
+   "name": "Regina King",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T120",
+   "name": "Dakota Johnson",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T121",
+   "name": "Ana de Armas",
+   "gender": "f",
+   "traits": [
+    "Muscle",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T122",
+   "name": "Millie Bobby Brown",
+   "gender": "f",
+   "traits": [
+    "Scream",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T123",
+   "name": "Jessica Chastain",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Scream"
+   ]
+  },
+  {
+   "id": "T124",
+   "name": "Gwyneth Paltrow",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T125",
+   "name": "Kristen Wiig",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T126",
+   "name": "Tina Fey",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T127",
+   "name": "Jennifer Coolidge",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T128",
+   "name": "Jane Fonda",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T129",
+   "name": "Dolly Parton",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T130",
+   "name": "Goldie Hawn",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T131",
+   "name": "Kathy Bates",
+   "gender": "f",
+   "traits": [
+    "Scream",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T132",
+   "name": "Frances McDormand",
+   "gender": "f",
+   "traits": [
+    "Prestige",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T133",
+   "name": "Lady Gaga",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T134",
+   "name": "Elizabeth Olsen",
+   "gender": "f",
+   "traits": [
+    "Scream",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T135",
+   "name": "Emma Watson",
+   "gender": "f",
+   "traits": [
+    "Heart",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T136",
+   "name": "Sandra Oh",
+   "gender": "f",
+   "traits": [
+    "Edge",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T137",
+   "name": "Demi Moore",
+   "gender": "f",
+   "traits": [
+    "Heart",
+    "Scream"
+   ]
+  },
+  {
+   "id": "T138",
+   "name": "Zoë Kravitz",
+   "gender": "f",
+   "traits": [
+    "Charm",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T139",
+   "name": "Cynthia Erivo",
+   "gender": "f",
+   "traits": [
+    "Song & Dance",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T140",
+   "name": "Awkwafina",
+   "gender": "f",
+   "traits": [
+    "Laughs",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "T141",
+   "name": "Mark Wahlberg",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T142",
+   "name": "Chris Pratt",
+   "gender": "m",
+   "traits": [
+    "Box Office",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T143",
+   "name": "Chris Evans",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T144",
+   "name": "Zac Efron",
+   "gender": "m",
+   "traits": [
+    "Song & Dance",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T145",
+   "name": "Seth Rogen",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T146",
+   "name": "Owen Wilson",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T147",
+   "name": "Vin Diesel",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T148",
+   "name": "Jeff Goldblum",
+   "gender": "m",
+   "traits": [
+    "Cult",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T149",
+   "name": "Liam Neeson",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T150",
+   "name": "Kevin Hart",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Box Office"
+   ]
+  },
+  {
+   "id": "T151",
+   "name": "Jamie Foxx",
+   "gender": "m",
+   "traits": [
+    "Song & Dance",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T152",
+   "name": "Jeff Bridges",
+   "gender": "m",
+   "traits": [
+    "Cult",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T153",
+   "name": "Russell Crowe",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T154",
+   "name": "Ewan McGregor",
+   "gender": "m",
+   "traits": [
+    "Song & Dance",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T155",
+   "name": "Andrew Garfield",
+   "gender": "m",
+   "traits": [
+    "Heart",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "T156",
+   "name": "Oscar Isaac",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T157",
+   "name": "Jason Momoa",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Laughs"
+   ]
+  },
+  {
+   "id": "T158",
+   "name": "Henry Cavill",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Charm"
+   ]
+  },
+  {
+   "id": "T159",
+   "name": "Adam Driver",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Prestige"
+   ]
+  },
+  {
+   "id": "T160",
+   "name": "Ralph Fiennes",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Scream"
+   ]
+  },
+  {
+   "id": "T161",
+   "name": "Patrick Stewart",
+   "gender": "m",
+   "traits": [
+    "Prestige",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T162",
+   "name": "Jude Law",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T163",
+   "name": "Matthew McConaughey",
+   "gender": "m",
+   "traits": [
+    "Charm",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T164",
+   "name": "Bryan Cranston",
+   "gender": "m",
+   "traits": [
+    "Edge",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T165",
+   "name": "John Travolta",
+   "gender": "m",
+   "traits": [
+    "Song & Dance",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T166",
+   "name": "Jack Nicholson",
+   "gender": "m",
+   "traits": [
+    "Scream",
+    "Edge"
+   ]
+  },
+  {
+   "id": "T167",
+   "name": "Danny Trejo",
+   "gender": "m",
+   "traits": [
+    "Muscle",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T168",
+   "name": "Simon Pegg",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Cult"
+   ]
+  },
+  {
+   "id": "T169",
+   "name": "Paul Rudd",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Heart"
+   ]
+  },
+  {
+   "id": "T170",
+   "name": "Bill Nighy",
+   "gender": "m",
+   "traits": [
+    "Laughs",
+    "Song & Dance"
+   ]
+  },
+  {
+   "id": "T171",
+   "name": "Ke Huy Quan",
+   "gender": "m",
+   "traits": [
+    "Heart",
+    "Muscle"
+   ]
+  },
+  {
+   "id": "T172",
+   "name": "Dev Patel",
+   "gender": "m",
+   "traits": [
+    "Heart",
+    "Muscle"
+   ]
+  }
+ ]
+}

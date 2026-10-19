@@ -1,0 +1,67 @@
+{
+ "note": "The house studios. They bid $1M over the price until they reach their ceiling for the lot, never break the reserve rule, and never know the genre.",
+ "studios": [
+  {
+   "id": "autoplay",
+   "name": "Autoplay+",
+   "colour": "grenadine",
+   "blurb": "The streamer. Reckless, deep pockets, mad for Box Office and Muscle.",
+   "likes": [
+    "Box Office",
+    "Muscle"
+   ],
+   "ceiling": {
+    "kind": "flip",
+    "deck": [
+     4,
+     5,
+     6,
+     7,
+     8,
+     10
+    ]
+   },
+   "legendBonus": 2
+  },
+  {
+   "id": "b48",
+   "name": "B48",
+   "colour": "latte",
+   "blurb": "The auteurs. Picky and stingy, but they go high for Prestige, Cult or Edge.",
+   "likes": [
+    "Prestige",
+    "Cult",
+    "Edge"
+   ],
+   "ceiling": {
+    "kind": "byMatches",
+    "table": [
+     0,
+     4,
+     7,
+     9
+    ]
+   },
+   "legendBonus": 2
+  },
+  {
+   "id": "tlc",
+   "name": "TLC Corp",
+   "colour": "mustard",
+   "blurb": "The old-school major. Steady money for legends, Box Office and Charm.",
+   "likes": [
+    "Box Office",
+    "Charm"
+   ],
+   "likesLegends": true,
+   "ceiling": {
+    "kind": "steady",
+    "base": 5,
+    "perMatch": 1,
+    "legend": 8
+   },
+   "legendBonus": 0
+  }
+ ],
+ "lastOrders": 3
+}

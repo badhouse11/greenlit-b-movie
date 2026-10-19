@@ -10,6 +10,7 @@ import {
   castingStamps,
   closeLot,
   rolesVerdict,
+  fitOf,
   genreOf,
   traitsHidden,
   dailySeed,
@@ -186,7 +187,7 @@ test('three or four vault legends surface every reel', () => {
 });
 
 test('stamp bands', () => {
-  assert.deepEqual([0, 1, 2, 3, 4, 6, 7, 9, 10, 12, 13, 20].map(castingStamps), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+  assert.deepEqual([0, 3, 4, 6, 7, 9, 10, 13, 14, 16, 17, 25].map(castingStamps), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
   assert.deepEqual([5, 12, 13, 14, 15, 16, 17, 18, 19, 20].map(budgetStamps), [5, 5, 4, 4, 3, 3, 2, 2, 1, 0]);
 });
 
@@ -296,4 +297,14 @@ test('solo hides traits until the premiere; Two-Hander shows them', () => {
   assert.equal(traitsHidden(playScripted(s)), false);
   const t = setPhase(newGame({ mode: 'two', seed: 't', humans: [{ name: 'A', colour: 'darlington' }, { name: 'B', colour: 'beeswax' }] }), 'auction');
   assert.equal(traitsHidden(t), false);
+});
+
+test('Oscar winners carry clout: +2 Casting in every genre', () => {
+  const g = playScripted(solo('oscar'));
+  const genre = genreOf(g);
+  const pacino = TALENT.find((c) => c.name === 'Al Pacino')!;
+  assert.equal(pacino.oscar, true);
+  const lines = fitOf(pacino, genre);
+  assert.ok(lines.some((l) => l.text.startsWith('Oscar winner') && l.pts === RULES.oscarClout));
+  assert.ok(!TALENT.find((c) => c.name === 'Tom Cruise')!.oscar);
 });

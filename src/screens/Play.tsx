@@ -134,9 +134,20 @@ function Commission({ game, act }: PlayProps) {
           <div className="bcommission__genre">
             <GenreCard genre={genreOf(game)} number={game.reel.number} sealed />
           </div>
-          <p className="lede">
-            Every star carries secret trait stamps. This genre wants some of them, hates one, and has five roles to fill. You’ll see it all at the premiere.
-          </p>
+          <ol className="bsteps">
+            <li>
+              <b>Cast five stars who’d suit a {genreOf(game).name}.</b> Go with your gut.
+            </li>
+            <li>
+              <b>Bid with your $20M.</b> Each star goes to the highest bid when the timer runs out. Keep at least $1M for every empty slot.
+            </li>
+            <li>
+              <b>Every star has two hidden strengths</b>, like Laughs or Muscle. They’re revealed after casting. Oscar winners are marked in gold and score extra.
+            </li>
+            <li>
+              <b>Score up to 15 stamps:</b> stars who suit the genre (Casting), money left over (Budget) and filling the film’s five roles (Plot).
+            </li>
+          </ol>
         </>
       ) : (
         <>
@@ -157,7 +168,7 @@ function Commission({ game, act }: PlayProps) {
         </>
       )}
       <section className="bcommission__rivals" aria-label="Your rivals">
-        <h2 className="t-wide">{rivals.length === 1 ? 'Also bidding' : 'Today’s rivals'}</h2>
+        <h2 className="t-wide">{rivals.length === 1 ? 'Also bidding' : 'Your rivals'}</h2>
         {rivals.map((s) => (
           <div key={s.id} className="brival-card" style={{ ['--r-bg' as string]: stock(s.colour).bg, ['--r-ink' as string]: stock(s.colour).ink }}>
             <strong className="t-ticket">{s.name}</strong>
@@ -167,7 +178,7 @@ function Commission({ game, act }: PlayProps) {
       </section>
       {game.mode === 'two' && <p className="muted">Lay the phone flat between you. Studio A sits at the bottom edge.</p>}
       <button className="btn btn--big btn--hot" onClick={() => act((g) => setPhase(g, 'auction'), { undoable: true })}>
-        {genreKnown(game) ? `Start casting your ${genreOf(game).name}` : 'Open the casting auction'}
+        {genreKnown(game) ? 'Start casting' : 'Open the casting auction'}
       </button>
     </main>
   );
@@ -201,11 +212,26 @@ function Reveal({ game, act }: PlayProps) {
   const order = [...humans(game), ...game.studios.filter((s) => !isHuman(s))];
   return (
     <main className="page page--narrow centre-stack breveal">
-      <div className="t-wide">{genreKnown(game) ? 'The premiere: traits revealed' : 'Your next picture is'}</div>
+      <div className="t-wide">{genreKnown(game) ? 'The premiere' : 'Your next picture is'}</div>
+      {genreKnown(game) && <h1 className="page-title t-ticket" style={{ textAlign: 'center' }}>What your stars are made of</h1>}
       <div className="breveal__card">
         <GenreCard genre={genre} number={game.reel.number} roles />
       </div>
-      <p className="lede">Solid stamps are what the genre wants (+2). Dashed is the bonus (+1). Struck through clashes (−1). The roles are your Plot.</p>
+      <ul className="bkey">
+        <li>
+          <span className="trait trait--want">Solid</span> The genre wants it: +2
+        </li>
+        <li>
+          <span className="trait trait--bonus">Dashed</span> A bonus: +1
+        </li>
+        <li>
+          <span className="trait trait--clash">Crossed</span> Clashes with the genre: −1
+        </li>
+        <li>
+          <span className="trait trait--oscar">★ Oscar</span> Oscar winner: +2 in any film
+        </li>
+      </ul>
+      <p className="lede">Your Plot stamps come from the five roles on the genre card: one star per role.</p>
       <div className="breveal__casts">
         {order.map((s) => (
           <StudioStub key={s.id} studio={s} rs={game.reel.studios[s.id]} genre={genre} you={isHuman(s) && game.mode !== 'two'} />
@@ -232,7 +258,7 @@ function TitleIt({ game, act }: PlayProps) {
     <main className="page page--narrow btitle">
       <div className="t-wide">{genre.name}</div>
       <h1 className="page-title t-ticket">Title it</h1>
-      <p className="lede">Name your film. A logline is optional, but it goes in the archive forever.</p>
+      <p className="lede">Give your film a title. Add a one-line logline if you like. Both go on your ticket in the archive.</p>
       <div className="btitle__forms">
         {people.map((s) => {
           const rs = game.reel.studios[s.id];
@@ -418,6 +444,7 @@ function Scoring({ game, act }: PlayProps) {
             {genreOf(game).name} · reel {game.reel.number}
           </div>
           <h1 className="page-title t-ticket">Punch the cards</h1>
+          <p className="lede">Up to 5 stamps each for Casting, Budget and Plot. Every stamp shows how it was earned.</p>
         </div>
       </div>
       <div className="bloyal-grid">

@@ -1,7 +1,7 @@
 {
  "deck": "talent",
  "title": "The Talent Deck",
- "note": "Living stars, two traits each. Edit freely; ids must stay unique. gender is f or m: draws alternate between them. Traits must come from traits.json.",
+ "note": "Living stars, two traits each. Edit freely; ids must stay unique. gender is f or m: draws alternate between them. Traits must come from traits.json. oscar: true marks a winner of a competitive Academy Award (acting, writing, directing or song; honorary awards don't count). Oscar winners are always shown, never sealed, and add +2 to Casting.",
  "cards": [
   {
    "id": "T001",
@@ -10,7 +10,8 @@
    "traits": [
     "Prestige",
     "Box Office"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T002",
@@ -19,7 +20,8 @@
    "traits": [
     "Prestige",
     "Song & Dance"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T003",
@@ -28,7 +30,8 @@
    "traits": [
     "Charm",
     "Box Office"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T004",
@@ -64,7 +67,8 @@
    "traits": [
     "Prestige",
     "Muscle"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T008",
@@ -91,7 +95,8 @@
    "traits": [
     "Laughs",
     "Song & Dance"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T011",
@@ -109,7 +114,8 @@
    "traits": [
     "Prestige",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T013",
@@ -118,7 +124,8 @@
    "traits": [
     "Box Office",
     "Muscle"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T014",
@@ -136,7 +143,8 @@
    "traits": [
     "Prestige",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T016",
@@ -145,7 +153,8 @@
    "traits": [
     "Edge",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T017",
@@ -154,7 +163,8 @@
    "traits": [
     "Charm",
     "Song & Dance"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T018",
@@ -172,7 +182,8 @@
    "traits": [
     "Heart",
     "Box Office"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T020",
@@ -181,7 +192,8 @@
    "traits": [
     "Charm",
     "Box Office"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T021",
@@ -208,7 +220,8 @@
    "traits": [
     "Box Office",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T024",
@@ -217,7 +230,8 @@
    "traits": [
     "Prestige",
     "Scream"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T025",
@@ -226,7 +240,8 @@
    "traits": [
     "Charm",
     "Box Office"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T026",
@@ -235,7 +250,8 @@
    "traits": [
     "Prestige",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T027",
@@ -253,7 +269,8 @@
    "traits": [
     "Muscle",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T029",
@@ -262,7 +279,8 @@
    "traits": [
     "Charm",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T030",
@@ -271,7 +289,8 @@
    "traits": [
     "Laughs",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T031",
@@ -280,7 +299,8 @@
    "traits": [
     "Muscle",
     "Box Office"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T032",
@@ -289,7 +309,8 @@
    "traits": [
     "Prestige",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T033",
@@ -298,7 +319,8 @@
    "traits": [
     "Prestige",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T034",
@@ -307,7 +329,8 @@
    "traits": [
     "Prestige",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T035",
@@ -316,7 +339,8 @@
    "traits": [
     "Muscle",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T036",
@@ -361,7 +385,8 @@
    "traits": [
     "Prestige",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T041",
@@ -370,7 +395,8 @@
    "traits": [
     "Prestige",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T042",
@@ -406,7 +432,8 @@
    "traits": [
     "Laughs",
     "Song & Dance"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T046",
@@ -415,7 +442,8 @@
    "traits": [
     "Edge",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T047",
@@ -424,7 +452,8 @@
    "traits": [
     "Edge",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T048",
@@ -505,7 +534,8 @@
    "traits": [
     "Muscle",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T057",
@@ -514,7 +544,8 @@
    "traits": [
     "Cult",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T058",
@@ -523,7 +554,8 @@
    "traits": [
     "Prestige",
     "Scream"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T059",
@@ -532,7 +564,8 @@
    "traits": [
     "Prestige",
     "Charm"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T060",
@@ -550,7 +583,8 @@
    "traits": [
     "Prestige",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T062",
@@ -568,7 +602,8 @@
    "traits": [
     "Charm",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T064",
@@ -649,7 +684,8 @@
    "traits": [
     "Box Office",
     "Muscle"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T073",
@@ -658,7 +694,8 @@
    "traits": [
     "Muscle",
     "Charm"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T074",
@@ -667,7 +704,8 @@
    "traits": [
     "Muscle",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T075",
@@ -766,7 +804,8 @@
    "traits": [
     "Scream",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T086",
@@ -775,7 +814,8 @@
    "traits": [
     "Scream",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T087",
@@ -784,7 +824,8 @@
    "traits": [
     "Muscle",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T088",
@@ -829,7 +870,8 @@
    "traits": [
     "Cult",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T093",
@@ -847,7 +889,8 @@
    "traits": [
     "Edge",
     "Charm"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T095",
@@ -856,7 +899,8 @@
    "traits": [
     "Charm",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T096",
@@ -865,7 +909,8 @@
    "traits": [
     "Cult",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T097",
@@ -892,7 +937,8 @@
    "traits": [
     "Prestige",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T100",
@@ -910,7 +956,8 @@
    "traits": [
     "Prestige",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T102",
@@ -919,7 +966,8 @@
    "traits": [
     "Charm",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T103",
@@ -991,7 +1039,8 @@
    "traits": [
     "Scream",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T111",
@@ -1027,7 +1076,8 @@
    "traits": [
     "Prestige",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T115",
@@ -1054,7 +1104,8 @@
    "traits": [
     "Charm",
     "Muscle"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T118",
@@ -1063,7 +1114,8 @@
    "traits": [
     "Heart",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T119",
@@ -1072,7 +1124,8 @@
    "traits": [
     "Prestige",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T120",
@@ -1108,7 +1161,8 @@
    "traits": [
     "Prestige",
     "Scream"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T124",
@@ -1117,7 +1171,8 @@
    "traits": [
     "Charm",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T125",
@@ -1153,7 +1208,8 @@
    "traits": [
     "Prestige",
     "Cult"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T129",
@@ -1171,7 +1227,8 @@
    "traits": [
     "Laughs",
     "Charm"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T131",
@@ -1180,7 +1237,8 @@
    "traits": [
     "Scream",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T132",
@@ -1189,7 +1247,8 @@
    "traits": [
     "Prestige",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T133",
@@ -1198,7 +1257,8 @@
    "traits": [
     "Song & Dance",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T134",
@@ -1360,7 +1420,8 @@
    "traits": [
     "Song & Dance",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T152",
@@ -1369,7 +1430,8 @@
    "traits": [
     "Cult",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T153",
@@ -1378,7 +1440,8 @@
    "traits": [
     "Muscle",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T154",
@@ -1468,7 +1531,8 @@
    "traits": [
     "Charm",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T164",
@@ -1495,7 +1559,8 @@
    "traits": [
     "Scream",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T167",
@@ -1540,7 +1605,8 @@
    "traits": [
     "Heart",
     "Muscle"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "T172",

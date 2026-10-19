@@ -1574,3 +1574,69 @@
 .why .nil b {
   color: var(--ink-soft);
 }
+
+/* ---------- clearer copy, Oscar winners --------------------------------------------- */
+.bmode__sub {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: -4px;
+}
+
+.bsteps {
+  width: min(520px, 100%);
+  margin: 0;
+  padding: 0 0 0 1.3em;
+  display: grid;
+  gap: 10px;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.bsteps li::marker {
+  font-family: var(--f-mono);
+  color: var(--grenadine);
+}
+
+.bcontrols__hint {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.bkey {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  width: min(420px, 100%);
+  text-align: left;
+}
+
+.bkey li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.bkey .trait {
+  min-width: 6.2em;
+  text-align: center;
+}
+
+.trait--oscar {
+  --t: #7a5a12;
+  background: linear-gradient(180deg, #f6dd92 0%, #d2a94e 100%);
+  border-color: #9c7428;
+  color: #3a2610;
+  font-weight: 500;
+}
+
+.blot__oscar {
+  justify-self: center;
+}
+
+.bslots__oscar {
+  color: #b8892f;
+}

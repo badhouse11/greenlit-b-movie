@@ -35,8 +35,11 @@ export function HowItWorks({ onBack }: { onBack: () => void }) {
       </ol>
 
       <section className="bhow__section">
-        <h2 className="t-ticket">The ten traits</h2>
+        <h2 className="t-ticket">The ten strengths</h2>
         <p>Living stars carry two. Vault legends carry three, and surface three or four times a reel at hidden moments. In Dailies and Free Play the stamps stay sealed until the premiere, so you’re casting on instinct: who feels right for a Western?</p>
+        <p>
+          <span className="trait trait--oscar">★ Oscar winner</span> Stars who have won a competitive Oscar are always marked. Each one adds +2 to your Casting score in any genre, so the rivals pay up for them too.
+        </p>
         <div className="bhow__traits">
           {traits.traits.map((t) => (
             <Trait key={t} name={t} />
@@ -82,7 +85,7 @@ export function HowItWorks({ onBack }: { onBack: () => void }) {
         <h2 className="t-ticket">The stamps</h2>
         <dl className="bhow__ledger">
           <dt>Casting</dt>
-          <dd>Fit score 2–3: 1 stamp · 4–6: 2 · 7–9: 3 · 10–12: 4 · 13+: 5</dd>
+          <dd>Add up your fit score. 4–6: 1 stamp · 7–9: 2 · 10–13: 3 · 14–16: 4 · 17 or more: 5</dd>
           <dt>Budget</dt>
           <dd>Spent $12M or less: 5 · $14M: 4 · $16M: 3 · $18M: 2 · $19M: 1 · all $20M: 0</dd>
           <dt>Plot</dt>

@@ -69,32 +69,36 @@ export function Home({
 
         <section className="bmodes" aria-label="Choose a mode">
           <Ticket bg="#E9A752" ink="#5A2A14" className="bmode" serrated>
-            <div className="bmode__kicker t-wide">One player · once a day</div>
-            <h2 className="bmode__name t-ticket">Dailies #{n}</h2>
+            <div className="bmode__kicker t-wide">One player · new every day</div>
+            <h2 className="bmode__name t-ticket">Dailies</h2>
+            <div className="bmode__sub">Your daily game of GREENLIT · No. {n}</div>
+            <p className="bmode__line">
+              Every day there’s a new film to cast. You get the genre and $20M. Outbid three rival studios for five stars who suit it. Everyone in the world plays the same game, and you get one go.
+            </p>
             {today?.done ? (
               <>
                 <p className="bmode__line">
-                  Done: <b>{today.total}/15</b>. Next Dailies in <span className="t-mono">{countdown}</span>
+                  You scored <b>{today.total}/15</b> today. The next Dailies opens in <span className="t-mono">{countdown}</span>.
                 </p>
                 <button className="btn btn--big" onClick={onDailies}>
                   See today’s result
                 </button>
               </>
             ) : (
-              <>
-                <p className="bmode__line">Today’s genre is on the envelope. Cast it from instinct. Same puzzle for everyone, one go.</p>
-                <button className="btn btn--big btn--hot" onClick={onDailies}>
-                  {today ? 'Carry on with today’s Dailies' : 'Play today’s Dailies'}
-                </button>
-              </>
+              <button className="btn btn--big btn--hot" onClick={onDailies}>
+                {today ? 'Carry on with today’s Dailies' : 'Play today’s Dailies'}
+              </button>
             )}
-            {run > 0 && <p className="bmode__streak t-mono">Streak: {run} {run === 1 ? 'day' : 'days'}</p>}
+            {run > 0 && <p className="bmode__streak t-mono">Streak: {run} {run === 1 ? 'day' : 'days'} in a row</p>}
           </Ticket>
 
           <Ticket bg="#78614D" ink="#F3D9A8" className="bmode" serrated>
             <div className="bmode__kicker t-wide">Two players · one phone</div>
             <h2 className="bmode__name t-ticket">Two-Hander</h2>
-            <p className="bmode__line">Head to head, phone flat on the table. Best of three reels.</p>
+            <div className="bmode__sub">Head to head · best of three films</div>
+            <p className="bmode__line">
+              Lay the phone flat between you. Each of you bids from your own end of the screen. Nobody knows the genre until casting closes, then you pitch your films to each other.
+            </p>
             <div className="btn-row">
               <button className="btn btn--big bmode__btn" onClick={onTwo}>
                 Start a Two-Hander
@@ -110,7 +114,7 @@ export function Home({
             </button>
           )}
           <button className="btn btn--ghost" onClick={onFree}>
-            Free Play: practise all you like
+            Free Play: a new practice game every time
           </button>
         </div>
 

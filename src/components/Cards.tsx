@@ -62,6 +62,7 @@ export function LotTicket({ card, compact = false, hideTraits = false }: { card:
       <div className="blot__name t-ticket">
         <FitText text={card.name} max={compact ? 30 : 46} min={14} />
       </div>
+      {card.oscar && <span className="trait trait--oscar blot__oscar">★ Oscar winner</span>}
       {hideTraits ? (
         <span className="traits" aria-label="Traits sealed until the premiere">
           {card.traits.map((_, i) => (
@@ -118,7 +119,10 @@ export function StudioStub({
             <li key={i} className={m ? (m.card.deck === 'legacy' ? 'is-legend' : '') : 'empty'}>
               {m ? (
                 <>
-                  <span className="bslots__name">{m.card.name}</span>
+                  <span className="bslots__name">
+                    {m.card.name}
+                    {m.card.oscar && <span className="bslots__oscar" aria-label="Oscar winner"> ★</span>}
+                  </span>
                   {genre && <Traits traits={m.card.traits} genre={genre} small />}
                   <span className="bslots__price t-mono">${m.price}M</span>
                 </>
@@ -147,7 +151,7 @@ export function GenreCard({ genre, number, roles = false, sealed = false }: { ge
         <FitText text={genre.name} max={56} min={20} />
       </div>
       {sealed ? (
-        <p className="gcard__sealed">What it wants stays sealed until the premiere. Cast it from instinct.</p>
+        <p className="gcard__sealed">What this genre wants from its stars is revealed after casting.</p>
       ) : (
       <dl className="gcard__rows">
         <div>

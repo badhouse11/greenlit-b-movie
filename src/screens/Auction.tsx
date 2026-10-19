@@ -32,24 +32,27 @@ const GOING_MS = 1800;
  */
 function useAuction(game: Game, act: Act) {
   const lot = game.reel.lot;
-  const key = lot ? `${game.reel.number}:${lot.drawNo}:${lot.bids.length}` : null;
-  const [deadline, setDeadline] = useState(0);
+  const lotId = lot ? `${game.reel.number}:${lot.drawNo}` : null;
+  const key = lot ? `${lotId}:${lot.bids.length}` : null;
+  // The clock belongs to one lot and one bid. A clock left over from the last lot is ignored,
+  // so a new star can never be hammered the instant it lands.
+  const [clock, setClock] = useState<{ key: string; at: number } | null>(null);
   const [now, setNow] = useState(() => Date.now());
-  const [passed, setPassed] = useState<string[]>([]);
+  const [passes, setPasses] = useState<{ lotId: string | null; ids: string[] }>({ lotId: null, ids: [] });
   const closing = useRef<string | null>(null);
   const move = nextHouseBid(game);
+  const passed = passes.lotId === lotId ? passes.ids : [];
+  const deadline = clock && clock.key === key ? clock.at : 0;
 
   useEffect(() => {
     const t = window.setInterval(() => setNow(Date.now()), 120);
     return () => window.clearInterval(t);
   }, []);
 
-  // A new lot: reset passes. Any new bid: reset the clock.
-  useEffect(() => setPassed([]), [lot?.drawNo, game.reel.number]);
+  // Any new bid (or a new lot) restarts the clock.
   useEffect(() => {
-    if (!lot) return;
-    closing.current = null;
-    setDeadline(Date.now() + (lot.bids.length ? BID_MS : OPEN_MS));
+    if (!lot || !key) return;
+    setClock({ key, at: Date.now() + (lot.bids.length ? BID_MS : OPEN_MS) });
   }, [key]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // House studios raise after a short, slightly random pause.
@@ -62,15 +65,16 @@ function useAuction(game: Game, act: Act) {
     return () => window.clearTimeout(t);
   }, [key, move?.studioId, move?.amount]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Everyone human is out and no house wants to raise: going, going...
+  // Every human is out and no house wants to raise: going, going...
   const humanOut = (s: Studio) => {
     const rs = game.reel.studios[s.id];
     return passed.includes(s.id) || slotsLeft(rs) === 0 || lot?.high?.studioId === s.id || maxBid(rs) < minNextBid(lot);
   };
   const allOut = !!lot && humans(game).every(humanOut);
   useEffect(() => {
-    if (allOut && !move) setDeadline((d) => Math.min(d, Date.now() + GOING_MS));
-  }, [allOut, !!move, key]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (!allOut || move || !key) return;
+    setClock((c) => (c && c.key === key ? { key, at: Math.min(c.at, Date.now() + GOING_MS) } : c));
+  }, [allOut, !!move, key, deadline > 0]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // The hammer.
   useEffect(() => {
@@ -88,8 +92,8 @@ function useAuction(game: Game, act: Act) {
   }, [game.phase, !!lot, game.reel.drawCount, humansFull(game)]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const total = lot?.bids.length ? BID_MS : OPEN_MS;
-  const left = Math.max(0, deadline - now);
-  const fraction = lot && deadline ? Math.min(1, left / total) : 0;
+  const left = deadline ? Math.max(0, deadline - now) : total;
+  const fraction = lot ? Math.min(1, left / total) : 0;
   const call = !lot
     ? ''
     : left < 1200
@@ -101,7 +105,11 @@ function useAuction(game: Game, act: Act) {
           : 'Opening bid $1M';
 
   const bid = (studioId: string, amount: number) => act((g) => placeBid(g, studioId, amount));
-  const pass = (studioId: string) => setPassed((p) => (p.includes(studioId) ? p : [...p, studioId]));
+  const pass = (studioId: string) =>
+    setPasses((p) => {
+      const ids = p.lotId === lotId ? p.ids : [];
+      return { lotId, ids: ids.includes(studioId) ? ids : [...ids, studioId] };
+    });
   return { lot, fraction, call, bid, pass, passed, seconds: Math.ceil(left / 1000), humanOut };
 }
 
@@ -213,8 +221,9 @@ export function SoloAuction({ game, act }: { game: Game; act: Act }) {
                   ))}
                 </div>
                 <button className="btn btn--ghost bpass" disabled={out} onClick={() => a.pass(me.id)}>
-                  {out ? 'Passed' : 'Pass'}
+                  {out ? 'Passed' : 'Pass on this star'}
                 </button>
+                <p className="bcontrols__hint">Tap a price to bid. The top bid wins when the timer runs out. You can bid up to ${maxBid(rs)}M.</p>
               </>
             )}
           </div>
@@ -338,6 +347,9 @@ function Half({
             <div className={`bhalf__star t-ticket ${lot.card.deck === 'legacy' ? 'is-legend' : ''}`}>
               <FitText text={lot.card.name} max={30} min={14} />
             </div>
+            <span className="traits">
+              {lot.card.oscar && <span className="trait trait--small trait--oscar">★ Oscar</span>}
+            </span>
             <Traits traits={lot.card.traits} small />
             <div className="bhalf__price t-ticket">
               {lot.high ? `$${lot.high.amount}M` : 'No bids'}

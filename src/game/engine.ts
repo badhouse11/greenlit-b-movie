@@ -34,7 +34,8 @@ export const RULES = {
   plotBase: 2,
   lastOrders: houseRules.lastOrders,
   pitchSeconds: 60,
-  rivalLead: 2, // a rival never gets more than this many stars ahead of the slowest human
+  rivalLead: 2,
+  oscarClout: 2, // every Oscar winner adds this to the Casting fit score, whatever the genre // a rival never gets more than this many stars ahead of the slowest human
 } as const;
 
 export const TALENT: Card[] = (talentDeck.cards as StarCard[]).map((c) => ({ ...c, deck: 'talent' }));
@@ -240,7 +241,8 @@ export function houseCeiling(h: HouseRules, card: Card, rng: () => number, genre
   if (card.deck === 'legacy' && h.likesLegends && c.legend) return pick(c.legend, rng);
   const row = c.byMatches[Math.min(matches, c.byMatches.length - 1)];
   const base = pick(row, rng);
-  return base > 0 && card.deck === 'legacy' ? base + h.legendBonus : base;
+  const legend = base > 0 && card.deck === 'legacy' ? h.legendBonus : 0;
+  return base + legend + (card.oscar ? RULES.oscarClout : 0); // everyone pays up for an Oscar winner
 }
 
 /** The next vault legend of the gender that's due, so the alternation never breaks. */
@@ -389,6 +391,7 @@ export interface Line {
 
 export function fitOf(card: Card, genre: Genre): Line[] {
   const out: Line[] = [];
+  if (card.oscar) out.push({ text: `Oscar winner: ${card.name}`, pts: RULES.oscarClout });
   for (const t of card.traits) {
     if (genre.wants.includes(t)) out.push({ text: `${t}: ${card.name}`, pts: 2 });
     else if (genre.bonus === t) out.push({ text: `${t}: ${card.name}`, pts: 1 });
@@ -398,11 +401,11 @@ export function fitOf(card: Card, genre: Genre): Line[] {
 }
 
 export function castingStamps(fit: number): number {
-  if (fit >= 13) return 5;
-  if (fit >= 10) return 4;
-  if (fit >= 7) return 3;
-  if (fit >= 4) return 2;
-  if (fit >= 2) return 1;
+  if (fit >= 17) return 5;
+  if (fit >= 14) return 4;
+  if (fit >= 10) return 3;
+  if (fit >= 7) return 2;
+  if (fit >= 4) return 1;
   return 0;
 }
 

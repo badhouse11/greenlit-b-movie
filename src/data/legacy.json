@@ -1,7 +1,7 @@
 {
  "deck": "legacy",
  "title": "The Legacy Vault",
- "note": "Late, great legends, three traits each. They surface at hidden points in every reel.",
+ "note": "Late, great legends, three traits each. They surface at hidden points in every reel. oscar: true marks a winner of a competitive Academy Award (acting, writing, directing or song; honorary awards don't count). Oscar winners are always shown, never sealed, and add +2 to Casting.",
  "cards": [
   {
    "id": "L001",
@@ -21,7 +21,8 @@
     "Prestige",
     "Edge",
     "Muscle"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L003",
@@ -31,7 +32,8 @@
     "Charm",
     "Prestige",
     "Song & Dance"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L004",
@@ -51,7 +53,8 @@
     "Laughs",
     "Heart",
     "Box Office"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L006",
@@ -61,7 +64,8 @@
     "Edge",
     "Cult",
     "Scream"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L007",
@@ -81,7 +85,8 @@
     "Prestige",
     "Laughs",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L009",
@@ -111,7 +116,8 @@
     "Prestige",
     "Charm",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L012",
@@ -121,7 +127,8 @@
     "Prestige",
     "Heart",
     "Charm"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L013",
@@ -131,7 +138,8 @@
     "Charm",
     "Prestige",
     "Muscle"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L014",
@@ -161,7 +169,8 @@
     "Edge",
     "Charm",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L017",
@@ -171,7 +180,8 @@
     "Laughs",
     "Heart",
     "Cult"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L018",
@@ -191,7 +201,8 @@
     "Charm",
     "Prestige",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L020",
@@ -201,7 +212,8 @@
     "Muscle",
     "Box Office",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L021",
@@ -211,7 +223,8 @@
     "Prestige",
     "Laughs",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L022",
@@ -221,7 +234,8 @@
     "Edge",
     "Prestige",
     "Scream"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L023",
@@ -261,7 +275,8 @@
     "Prestige",
     "Edge",
     "Cult"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L027",
@@ -311,7 +326,8 @@
     "Edge",
     "Prestige",
     "Muscle"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L032",
@@ -321,7 +337,8 @@
     "Charm",
     "Prestige",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L033",
@@ -331,7 +348,8 @@
     "Laughs",
     "Charm",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L034",
@@ -351,7 +369,8 @@
     "Charm",
     "Prestige",
     "Heart"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L036",
@@ -361,7 +380,8 @@
     "Prestige",
     "Cult",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L037",
@@ -371,7 +391,8 @@
     "Prestige",
     "Charm",
     "Edge"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L038",
@@ -411,7 +432,8 @@
     "Prestige",
     "Heart",
     "Charm"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L042",
@@ -491,7 +513,8 @@
     "Edge",
     "Scream",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L050",
@@ -561,7 +584,8 @@
     "Song & Dance",
     "Charm",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L057",
@@ -601,7 +625,8 @@
     "Prestige",
     "Heart",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L061",
@@ -641,7 +666,8 @@
     "Prestige",
     "Edge",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L065",
@@ -681,7 +707,8 @@
     "Prestige",
     "Edge",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L069",
@@ -711,7 +738,8 @@
     "Muscle",
     "Charm",
     "Box Office"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L072",
@@ -721,7 +749,8 @@
     "Prestige",
     "Song & Dance",
     "Charm"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L073",
@@ -761,7 +790,8 @@
     "Charm",
     "Box Office",
     "Muscle"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L077",
@@ -771,7 +801,8 @@
     "Prestige",
     "Heart",
     "Muscle"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L078",
@@ -781,7 +812,8 @@
     "Heart",
     "Charm",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L079",
@@ -811,7 +843,8 @@
     "Prestige",
     "Heart",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L082",
@@ -841,7 +874,8 @@
     "Laughs",
     "Heart",
     "Prestige"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L085",
@@ -871,7 +905,8 @@
     "Prestige",
     "Cult",
     "Laughs"
-   ]
+   ],
+   "oscar": true
   },
   {
    "id": "L088",

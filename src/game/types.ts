@@ -7,6 +7,7 @@ export interface StarCard {
   name: string;
   gender: Gender;
   traits: string[];
+  oscar?: boolean; // won a competitive Academy Award: always on show, +2 Casting
 }
 
 export interface Card extends StarCard {
